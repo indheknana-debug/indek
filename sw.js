@@ -1,6 +1,6 @@
 // Service worker Catatan Keuangan Indek: membuat aplikasi cepat dibuka dan bisa dipakai tanpa internet.
 // Naikkan VERSION setiap kali file aplikasi diubah, supaya HP mengambil versi baru.
-const VERSION = "indek-v29";
+const VERSION = "indek-v30";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png", "./favicon-32.png"];
 const CDN = ["cdn.jsdelivr.net", "cdnjs.cloudflare.com", "fonts.googleapis.com", "fonts.gstatic.com"];
 
