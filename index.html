@@ -631,6 +631,25 @@ body.modal-open{overflow:hidden}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;touch-action:manipulation}
 button,a,label,.pad button,.qa,.tab{touch-action:manipulation}
 input,select,textarea{font-size:16px!important}
+
+/* status lunas */
+.pcard h3{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.stb{flex:none;font-size:.64rem;font-weight:800;letter-spacing:.06em;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.stb.paid{background:var(--in);color:#fff}
+.stb.over{background:var(--gaji);color:#fff}
+.stb.open{background:var(--free-soft);color:var(--free)}
+.pcard.st-paid{border-color:color-mix(in srgb,var(--in) 55%,var(--line))}
+.pcard.st-paid .track .fill{background:var(--in)}
+.pcard.st-over{border-color:color-mix(in srgb,var(--gaji) 55%,var(--line))}
+.pcard.st-over .track .fill{background:var(--gaji)}
+.pcard.st-paid .prog{color:var(--in);font-weight:700}
+.pcard.st-over .prog{color:var(--gaji);font-weight:700}
+.overrow{background:var(--gaji-soft);border-radius:10px;padding:6px 10px}.overrow span{color:var(--gaji)!important;font-weight:700}
+.epstatus{font-size:.84rem;font-weight:700;border-radius:10px;padding:8px 10px}
+.epstatus:empty{display:none}
+.epstatus.paid{background:color-mix(in srgb,var(--in) 14%,transparent);color:var(--in)}
+.epstatus.over{background:var(--gaji-soft);color:var(--gaji)}
+.epstatus.open{background:var(--surface-2);color:var(--muted)}
 </style>
 
 </head>
@@ -1242,7 +1261,7 @@ function updatePct(fromPct){const P=formProj(),box=$("pctHint");
   const paid=P.id?projPays(P.id).filter(t=>!editing||String(t.id)!==String(editing.id)).reduce((a,t)=>a+t.amount,0):0;
   const spent=P.id?state.tx.filter(t=>t.type==="out"&&t.src==="free"&&!t.extra&&t.projId===P.id&&(!editing||String(t.id)!==String(editing.id))).reduce((a,t)=>a+t.amount,0):0;
   $("pctText").textContent=type==="in"
-    ?`Nilai proyek ${rp(P.value)}. ${amt?`${rp(amt)} = ${pctOf(amt,P.value)}% dari nilai proyek. `:""}Sudah dibayar sebelumnya ${rp(paid)} (${pctOf(paid,P.value)||0}%). Sisa tagihan setelah ini ${rp(Math.max(0,P.value-paid-amt))}.`
+    ?`Nilai proyek ${rp(P.value)}. ${amt?`${rp(amt)} = ${pctOf(amt,P.value)}% dari nilai proyek. `:""}Sudah dibayar sebelumnya ${rp(paid)} (${pctOf(paid,P.value)||0}%). `+(paid+amt>P.value?`⚠ Pembayaran ini membuat proyek LEBIH BAYAR ${rp(paid+amt-P.value)}.`:paid+amt===P.value&&amt?`✓ Dengan pembayaran ini proyek menjadi LUNAS.`:`Sisa tagihan setelah ini ${rp(Math.max(0,P.value-paid-amt))}.`)
     :`Nilai proyek ${rp(P.value)}. ${amt?`Biaya ini ${pctOf(amt,P.value)}% dari nilai proyek. `:""}Total biaya proyek setelah ini ${rp(spent+amt)} (${pctOf(spent+amt,P.value)||0}%).`}
 $("pctIn").addEventListener("input",()=>{const P=formProj();if(!P||!P.value)return;const n=parseDec($("pctIn").value);
   const a=Math.round(P.value*n/100);$("amount").value=a?a.toLocaleString("id-ID"):"";updatePct(true)});
@@ -1350,7 +1369,7 @@ function projStats(){
   return groups.map(g=>{const inc=g.tx.filter(t=>t.type==="in").reduce((a,t)=>a+t.amount,0),out=g.tx.filter(t=>t.type==="out").reduce((a,t)=>a+t.amount,0);
     const by={};g.tx.filter(t=>t.type==="out").forEach(t=>by[t.cat]=(by[t.cat]||0)+t.amount);
     const pays=g.tx.filter(t=>t.type==="in").sort((a,b)=>a.date.localeCompare(b.date));
-    return {...g,inc,out,sisa:inc-out,unpaid:Math.max(0,(g.p.value||0)-inc),by,pays}}).sort((a,b)=>(a.p.id?0:1)-(b.p.id?0:1)||(b.p.created||"").localeCompare(a.p.created||""));
+    const over=g.p.value?Math.max(0,inc-g.p.value):0,status=!g.p.value?"none":inc>g.p.value?"over":inc===g.p.value?"paid":"open";return {...g,inc,out,sisa:inc-out,unpaid:Math.max(0,(g.p.value||0)-inc),over,status,by,pays}}).sort((a,b)=>(a.p.id?0:1)-(b.p.id?0:1)||(b.p.created||"").localeCompare(a.p.created||""));
 }
 const stat=(l,v,hl,cls="")=>`<div class="stat${hl?" hl":""}"><span class="lbl">${l}</span><span class="num ${cls}">${v}</span></div>`;
 let pendingDel=null;
@@ -1383,17 +1402,17 @@ function renderProjects(force){
         return rows||`<p class="prog">Belum ada pembayaran untuk proyek ini.</p>`})()}
       <button type="button" class="payadd" data-paddrow>+ Tambah pembayaran</button>
       <div class="rv"><span>Total dibayar</span><span class="num in">${rp(editProj.pays.filter(r=>!r.removed).reduce((a,r)=>a+(r.amount||0),0))}</span></div>
-      ${editProj.value?`<div class="rv"><span>Belum dibayar</span><span class="num warnc">${rp(Math.max(0,editProj.value-editProj.pays.filter(r=>!r.removed).reduce((a,r)=>a+(r.amount||0),0)))}</span></div>`:""}
+      ${editProj.value?`<div class="rv"><span>Belum dibayar</span><span class="num warnc">${rp(Math.max(0,editProj.value-editProj.pays.filter(r=>!r.removed).reduce((a,r)=>a+(r.amount||0),0)))}</span></div><div class="epstatus" id="epStatus"></div>`:""}
       </div>
       <p class="err" id="epErr" hidden></p>
       <div class="pacts"><button type="button" class="psave" data-psave>Simpan semua</button><button type="button" data-pcancel>Batal</button></div></div>`;
-    return `<div class="pcard"><h3>${esc(g.p.name)}${g.p.sample?' <span class="tag contoh">contoh</span>':""}</h3>
+    return `<div class="pcard st-${g.status}"><h3><span>${esc(g.p.name)}${g.p.sample?' <span class="tag contoh">contoh</span>':""}</span>${g.p.id?statusBadge(g):""}</h3>
       ${g.p.id?`<div class="who">Pemberi: ${esc(g.p.client||"belum diisi")}</div>`:`<div class="who">Transaksi freelance yang belum dikaitkan ke proyek</div>`}
       ${g.p.id?`<div class="rv"><span>Nilai proyek</span><span class="num">${g.p.value?rp(g.p.value):"belum diisi"}</span></div>
       <div class="rv"><span>Sudah dibayar</span><span class="num in">${rp(g.inc)}</span></div>
-      <div class="rv"><span>Belum dibayar</span><span class="num ${g.unpaid>0?"warnc":""}">${g.p.value?rp(g.unpaid):"–"}</span></div>
+      ${g.status==="over"?`<div class="rv overrow"><span>Kelebihan bayar</span><span class="num">+${rp(g.over)}</span></div>`:`<div class="rv"><span>Belum dibayar</span><span class="num ${g.unpaid>0?"warnc":"in"}">${g.p.value?rp(g.unpaid):"–"}</span></div>`}
       <div class="track"><div class="fill" style="width:${pct}%"></div></div>
-      <div class="prog">${g.p.value?(g.unpaid<=0?"Lunas":`${Math.round(pct)}% sudah dibayar`):"Isi nilai proyek lewat Edit proyek untuk melihat sisa tagihan"}</div>
+      <div class="prog">${statusText(g)}</div>
       <div class="pbreak"><b>Pembayaran</b>${g.pays.length?g.pays.map((t,i)=>`<div class="payline"><span><span class="payno">Pembayaran ${i+1}</span><br>${new Date(t.date+"T00:00").toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"})}${t.memo?" · "+esc(t.memo):""}${t.files&&t.files.length?`<br><button type="button" class="attbadge" data-att="${t.id}"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.4 11.1-9.2 9.2a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8l8.5-8.5"/></svg> ${t.files.length} bukti</button>`:""}</span><span class="paysum"><span class="num in">${rp(t.amount)}</span>${g.p.value?`<span class="paypct">${pctOf(t.amount,g.p.value)}%</span>`:""}</span></div>`).join(""):`<div>Belum ada pembayaran</div>`}
       <button type="button" class="payadd" data-paddnew="${esc(g.p.id)}">+ Tambah pembayaran</button></div>`
       :`<div class="rv"><span>Pemasukan</span><span class="num in">${rp(g.inc)}</span></div>`}
@@ -1431,7 +1450,9 @@ function openProjEdit(id,addRow){const p=state.projects.find(x=>x.id===id);if(!p
   $("projects").querySelector(".pcard.editing")?.scrollIntoView({behavior:"smooth",block:"start"})}
 function setPayTotals(){const card=$("projects").querySelector(".pcard.editing");if(!card)return;
   const tot=editProj.pays.filter(r=>!r.removed).reduce((a,r)=>a+(r.amount||0),0),rows=card.querySelectorAll(".paylist > .rv .num");
-  if(rows[0])rows[0].textContent=rp(tot);if(rows[1])rows[1].textContent=rp(Math.max(0,(editProj.value||0)-tot))}
+  if(rows[0])rows[0].textContent=rp(tot);if(rows[1])rows[1].textContent=rp(Math.max(0,(editProj.value||0)-tot));
+  const st=$("epStatus");if(st){const v=editProj.value||0;st.className="epstatus "+(tot>v?"over":tot===v&&v?"paid":"open");
+    st.textContent=!v?"":tot>v?`⚠ Lebih bayar ${rp(tot-v)} dari nilai proyek. Periksa lagi jumlah pembayarannya, atau naikkan nilai proyek kalau memang ada pekerjaan tambahan.`:tot===v?"✓ Proyek akan berstatus LUNAS setelah disimpan.":`Kurang ${rp(v-tot)} lagi untuk lunas (${pctOf(tot,v)||0}% dibayar).`}}
 $("projects").addEventListener("input",e=>{if(!editProj)return;const t=e.target;
   if(t.id==="epValue"){const n=parseAmt(t.value);t.value=n?n.toLocaleString("id-ID"):"";editProj.value=n;setPayTotals();
     $("projects").querySelectorAll('[data-pf="pct"]').forEach(inp=>{const r=editProj.pays[+inp.dataset.pi];inp.disabled=!n;inp.placeholder=n?"0":"isi nilai proyek";inp.value=pctOf(r.amount,n)})}
@@ -1557,16 +1578,16 @@ function reportProject(pid){const PS=projStats().filter(g=>g.p.id);
     const outs=g.tx.filter(t=>t.type==="out").sort((a,b)=>a.date.localeCompare(b.date)).map(t=>[fmtD(t.date),t.cat||"",(t.sub||"")+calcText(t).replace(/^ · /,t.sub?" · ":""),t.memo||"",t.amount]);
     outs.push(["Total pengeluaran","","","",g.out]);
     return {title:"Laporan Proyek: "+p.name,info:[["Proyek",p.name],["Pemberi proyek",p.client||"-"],["Dicetak",fmtD(iso(new Date()))]],slug:"proyek-"+p.name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),sections:[
-      {name:"Ringkasan",title:"Ringkasan proyek",head:["Keterangan","Nilai"],rows:[["Nilai proyek",p.value||0],["Sudah dibayar",g.inc],["Belum dibayar",g.unpaid],["Persentase dibayar",p.value?pct+"%":"-"],["Pengeluaran proyek",g.out],["Sisa uang (dibayar − pengeluaran)",g.sisa],["Perkiraan sisa jika lunas",(p.value||0)-g.out]]},
+      {name:"Ringkasan",title:"Ringkasan proyek",head:["Keterangan","Nilai"],rows:[["Nilai proyek",p.value||0],["Sudah dibayar",g.inc],["Belum dibayar",g.unpaid],["Persentase dibayar",p.value?pct+"%":"-"],["Status",g.status==="over"?"Lebih bayar":g.status==="paid"?"Lunas":g.status==="open"?"Belum lunas":"Nilai belum diisi"],["Kelebihan bayar",g.over],["Pengeluaran proyek",g.out],["Sisa uang (dibayar − pengeluaran)",g.sisa],["Perkiraan sisa jika lunas",(p.value||0)-g.out]]},
       {name:"Pembayaran",title:"Pembayaran dari pemberi proyek",head:["Pembayaran","Tanggal","Keterangan","Jumlah (Rp)","% nilai proyek"],rows:pays,total:true},
       {name:"Pengeluaran",title:"Pengeluaran proyek",head:["Tanggal","Kategori","Rincian","Catatan","Jumlah (Rp)"],rows:outs,total:true},
       {name:"Per kategori",title:"Pengeluaran per kategori",head:["Kategori","Jumlah (Rp)","Porsi"],rows:byCat(g.tx.filter(t=>t.type==="out")),total:true}]}}
-  const sumRows=one.map(g=>[g.p.name,g.p.client||"-",g.p.value||0,g.inc,g.unpaid,g.p.value?pctOf(g.inc,g.p.value)+"%":"-",g.out,g.sisa]);
-  const t=k=>one.reduce((a,g)=>a+g[k],0),tv=one.reduce((a,g)=>a+(g.p.value||0),0);sumRows.push(["Total semua proyek","",tv,t("inc"),t("unpaid"),tv?pctOf(t("inc"),tv)+"%":"-",t("out"),t("sisa")]);
+  const sumRows=one.map(g=>[g.p.name,g.p.client||"-",g.p.value||0,g.inc,g.unpaid,g.p.value?pctOf(g.inc,g.p.value)+"%":"-",g.status==="over"?"Lebih bayar "+rp(g.over):g.status==="paid"?"Lunas":g.status==="open"?"Belum lunas":"-",g.out,g.sisa]);
+  const t=k=>one.reduce((a,g)=>a+g[k],0),tv=one.reduce((a,g)=>a+(g.p.value||0),0);sumRows.push(["Total semua proyek","",tv,t("inc"),t("unpaid"),tv?pctOf(t("inc"),tv)+"%":"-","",t("out"),t("sisa")]);
   const pays=[];one.forEach(g=>g.pays.forEach((x,i)=>pays.push([g.p.name,"Pembayaran "+(i+1),fmtD(x.date),x.memo||"-",x.amount])));pays.push(["Total","","","",t("inc")]);
   const outs=[];one.forEach(g=>g.tx.filter(x=>x.type==="out").forEach(x=>outs.push([g.p.name,fmtD(x.date),x.cat||"",(x.sub||"")+calcText(x).replace(/^ · /,x.sub?" · ":""),x.amount])));outs.push(["Total","","","",t("out")]);
   return {title:"Laporan Semua Proyek",info:[["Jumlah proyek",String(one.length)],["Dicetak",fmtD(iso(new Date()))]],slug:"semua-proyek",sections:[
-    {name:"Ringkasan",title:"Ringkasan semua proyek",head:["Proyek","Pemberi","Nilai proyek","Sudah dibayar","Belum dibayar","% dibayar","Pengeluaran","Sisa uang"],rows:sumRows,total:true,wide:true},
+    {name:"Ringkasan",title:"Ringkasan semua proyek",head:["Proyek","Pemberi","Nilai proyek","Sudah dibayar","Belum dibayar","% dibayar","Status","Pengeluaran","Sisa uang"],rows:sumRows,total:true,wide:true},
     {name:"Pembayaran",title:"Semua pembayaran",head:["Proyek","Pembayaran","Tanggal","Keterangan","Jumlah (Rp)"],rows:pays,total:true},
     {name:"Pengeluaran",title:"Semua pengeluaran proyek",head:["Proyek","Tanggal","Kategori","Rincian","Jumlah (Rp)"],rows:outs,total:true}]}}
 
@@ -1765,9 +1786,9 @@ function renderHome(){if(!$("recent"))return;renderPosisi();
     :`<p class="empty">Belum ada transaksi bulan ini. Ketuk tombol + untuk mencatat.</p>`;
   const S=projStats().filter(g=>g.p.id).sort((a,b)=>b.unpaid-a.unpaid).slice(0,3);
   $("homeProj").innerHTML=S.length?S.map(g=>{const pct=g.p.value?Math.min(100,g.inc/g.p.value*100):0;
-    return `<a href="#proyek" class="hp" data-go="proyek"><div class="top"><span>${esc(g.p.name)}</span><span class="num">${g.p.value?Math.round(pct)+"%":""}</span></div>
+    return `<a href="#proyek" class="hp" data-go="proyek"><div class="top"><span>${esc(g.p.name)}</span><span class="num">${g.p.value?Math.round(g.inc/g.p.value*100)+"%":""}</span></div>
       <div class="track"><div class="fill" style="width:${pct}%"></div></div>
-      <div class="meta"><span>Dibayar ${rp(g.inc)}</span><span>${g.p.value?(g.unpaid>0?"Kurang "+rp(g.unpaid):"Lunas"):"Nilai belum diisi"}</span></div></a>`}).join("")
+      <div class="meta"><span>Dibayar ${rp(g.inc)}</span><span>${g.status==="over"?"Lebih bayar "+rp(g.over):g.status==="paid"?"✓ Lunas":g.p.value?"Kurang "+rp(g.unpaid):"Nilai belum diisi"}</span></div></a>`}).join("")
     :`<p class="empty">Belum ada proyek. Buka menu Proyek untuk menambahkan.</p>`;
 }
 if(standalone){$("installedNote").hidden=false}
@@ -1948,6 +1969,7 @@ function finStats(){
   if(prev.out>0&&cur.out>0){const ch=(cur.out-prev.out)/prev.out;if(Math.abs(ch)>=0.05)ins.push({t:ch>0?"warn":"good",m:`Pengeluaran ${ch>0?"naik":"turun"} ${Math.round(Math.abs(ch)*100)}% dibanding ${mName(prevMonth(view))} (${rp(prev.out)}).`})}
   if(topCat&&cur.out>0)ins.push({t:"info",m:`Pengeluaran terbesar bulan ini: ${topCat[0]} ${rp(topCat[1])} (${Math.round(topCat[1]/cur.out*100)}% dari pengeluaran).`});
   if(extra>0&&cur.out>0)ins.push({t:extra/cur.out>0.3?"warn":"info",m:`Pengeluaran tambahan (arisan, pinjaman, dll.) ${rp(extra)} atau ${Math.round(extra/cur.out*100)}% dari pengeluaran bulan ini.`});
+  const overP=PS.filter(g=>g.status==="over");if(overP.length)ins.push({t:"warn",m:`${overP.length} proyek lebih bayar, total ${rp(overP.reduce((a,g)=>a+g.over,0))}: ${overP.map(g=>g.p.name).join(", ")}. Periksa jumlah pembayaran atau nilai proyeknya.`});
   if(open.length)ins.push({t:"info",m:`Masih ada ${rp(piutang)} yang belum dibayar dari ${open.length} proyek. Terbesar: ${open[0].p.name} (${rp(open[0].unpaid)}).`});
   else if(PS.length)ins.push({t:"good",m:`Semua proyek yang punya nilai sudah lunas.`});
   if(runway!==null)ins.push({t:runway<1?"warn":"info",m:`Dengan rata-rata pengeluaran ${rp(avgOut)}/bulan, saldo sekarang cukup untuk sekitar ${runway>=10?Math.round(runway):runway.toFixed(1).replace(".",",")} bulan${piutang?` (sekitar ${((saldo+piutang)/avgOut).toFixed(1).replace(".",",")} bulan jika semua proyek lunas)`:""}.`});
@@ -1970,6 +1992,23 @@ function renderPosisi(){const el=$("posisi");if(!el)return;const F=finStats();
     <div class="ps-legend"><span><i class="b1"></i>Sudah di tangan</span><span><i class="b2"></i>Akan masuk dari proyek</span></div>
     <div class="ps-src">${F.bySrc.map(s=>`<div><span class="sdot s-${SRC[s.k].cls}"></span>${s.name}<b class="num ${s.v<0?"out":""}">${sRp(s.v)}</b></div>`).join("")}</div>
     ${F.ins.length?`<div class="ps-ins"><b>Kesimpulan</b><ul>${F.ins.map(x=>`<li class="in-${x.t}"><span>${INS_IC[x.t]}</span>${esc(x.m)}</li>`).join("")}</ul></div>`:""}`}
+
+
+{const _rp=renderProjects;renderProjects=function(f){_rp(f);if(editProj)setPayTotals()}}
+function statusBadge(g){return g.status==="paid"?`<span class="stb paid">✓ LUNAS</span>`:g.status==="over"?`<span class="stb over">LEBIH BAYAR</span>`:g.status==="open"?`<span class="stb open">BELUM LUNAS</span>`:""}
+function statusText(g){if(!g.p.id)return"";if(g.status==="none")return"Isi nilai proyek lewat Edit proyek untuk melihat sisa tagihan";
+  if(g.status==="paid")return`✓ Lunas · dibayar penuh ${rp(g.inc)} dalam ${g.pays.length} pembayaran${g.pays.length?`, terakhir ${new Date(g.pays[g.pays.length-1].date+"T00:00").toLocaleDateString("id-ID",{day:"numeric",month:"short",year:"numeric"})}`:""}`;
+  if(g.status==="over")return`⚠ Lebih bayar ${rp(g.over)} (${pctOf(g.inc,g.p.value)}% dari nilai proyek). Periksa jumlah pembayaran atau naikkan nilai proyek kalau ada pekerjaan tambahan.`;
+  return`${pctOf(g.inc,g.p.value)||0}% sudah dibayar · kurang ${rp(g.unpaid)}`}
+
+
+/* notifikasi saat status proyek berubah */
+let lastPStat=null;
+{const _rp2=renderProjects;renderProjects=function(f){_rp2(f);if(!state.loaded)return;
+  const now={};projStats().filter(g=>g.p.id&&!g.p.sample).forEach(g=>now[g.p.id]=[g.status,g.p.name,g.over]);
+  if(lastPStat){for(const id in now){const [st,nm,ov]=now[id],prev=lastPStat[id]&&lastPStat[id][0];
+    if(prev&&prev!==st){if(st==="paid")toast(`✓ Proyek "${nm}" sudah LUNAS`);else if(st==="over")toast(`⚠ Proyek "${nm}" lebih bayar ${rp(ov)}`)}}}
+  lastPStat=now}}
 
 boot();
 </script>
