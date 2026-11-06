@@ -1,0 +1,117 @@
+CATATAN KEUANGAN INDEK — PANDUAN PASANG
+========================================
+
+Isi folder ini:
+  index.html            aplikasinya
+  manifest.webmanifest  nama dan ikon aplikasi
+  sw.js                 supaya bisa dibuka tanpa internet
+  icons/                logo Indek
+  supabase-setup.sql    struktur database untuk sinkron
+  PANDUAN.txt           file ini
+
+
+LANGKAH 1 — Siapkan database sinkron (Supabase, gratis)
+--------------------------------------------------------
+1. Buka https://supabase.com lalu klik "Start your project" dan daftar
+   (bisa pakai akun GitHub atau email).
+2. Klik "New project". Isi nama, misalnya "indek", buat password
+   database (simpan baik-baik), pilih region Singapore (paling dekat
+   dengan Indonesia), lalu "Create new project". Tunggu 1–2 menit.
+3. Di menu kiri pilih "SQL Editor" > "New query".
+   Buka file supabase-setup.sql, salin SEMUA isinya, tempel, lalu klik
+   "Run". Harus muncul "Success".
+4. Di menu kiri pilih "Project Settings" > "API Keys". Catat dua nilai:
+     - Project URL      (contoh: https://abcdxyz.supabase.co, terlihat
+                         di halaman utama proyek)
+     - Publishable key  (diawali sb_publishable_...)
+   Kedua nilai ini aman dipakai di aplikasi. JANGAN pakai Secret key
+   (sb_secret_...).
+5. (Opsional, supaya bisa langsung masuk tanpa cek email)
+   "Authentication" > "Sign In / Providers" > "Email" > matikan
+   "Confirm email" > Save.
+
+
+LANGKAH 2 — Taruh aplikasi di internet (Netlify Drop, gratis)
+-------------------------------------------------------------
+1. Ekstrak file zip ini sampai muncul folder "indek".
+2. Buka https://app.netlify.com/drop di laptop.
+3. Seret folder "indek" ke kotak di halaman itu.
+4. Netlify memberi link, misalnya https://nama-acak.netlify.app
+   Daftar akun Netlify (gratis) supaya link-nya permanen dan bisa diganti
+   namanya, misalnya https://indek-keuangan.netlify.app
+   (Site configuration > Change site name).
+
+Cara lain: GitHub Pages atau Cloudflare Pages juga bisa. Yang penting
+semua file di folder "indek" diunggah apa adanya dan dibuka lewat https.
+
+
+LANGKAH 3 — Hubungkan aplikasi ke database
+------------------------------------------
+1. Buka link Netlify Anda.
+2. Gulir ke bagian "Sinkron & penyimpanan".
+3. Tempel Project URL dan Publishable key dari Langkah 1, lalu
+   "Simpan pengaturan".
+4. Isi email dan kata sandi, klik "Buat akun". Setelahnya gunakan
+   "Masuk" dengan email yang sama di setiap HP dan laptop.
+   Setiap perangkat cukup diatur sekali.
+
+
+LANGKAH 4 — Pasang di perangkat
+-------------------------------
+Android (Chrome):
+  Buka link > ketuk tombol "Pasang aplikasi" di atas, atau menu ⋮ >
+  "Instal aplikasi" / "Tambahkan ke layar utama".
+iPhone / iPad (Safari):
+  Buka link di Safari > tombol Bagikan > "Tambahkan ke Layar Utama".
+Laptop (Chrome / Edge):
+  Buka link > klik ikon pasang di ujung kanan kolom alamat.
+
+Ikon Indek akan muncul di layar utama dan aplikasi terbuka tanpa
+kolom alamat, seperti aplikasi biasa.
+
+
+MEMINDAHKAN DATA DARI VERSI CLAUDE
+----------------------------------
+1. Di versi Claude, buka bagian "Unduh laporan" > "Backup (.json)".
+2. Di aplikasi baru, bagian "Sinkron & penyimpanan" >
+   "Pulihkan dari backup" > pilih file tadi.
+3. Data langsung terkirim ke akun sinkron Anda.
+
+
+CARA KERJA PENYIMPANAN
+----------------------
+- Setiap perangkat menyimpan salinan data di database browser
+  (IndexedDB). Kapasitasnya ratusan MB, cukup untuk ratusan ribu
+  transaksi. Aplikasi meminta browser agar data ini tidak dihapus
+  otomatis.
+- Tanpa internet aplikasi tetap bisa dipakai. Perubahan masuk antrean
+  dan dikirim otomatis saat online.
+- Sinkron hanya mengirim data yang berubah sejak sinkron terakhir, jadi
+  tetap cepat walaupun datanya banyak.
+- Perubahan dari perangkat lain muncul otomatis (realtime).
+- Paket gratis Supabase memberi 500 MB database. Satu transaksi kira-
+  kira 0,5 KB, jadi muat sekitar 1 juta transaksi.
+- Riwayat transaksi ditampilkan 100 per halaman ("Tampilkan lebih
+  banyak") supaya tetap ringan.
+- Tetap unduh backup .json sesekali dan simpan di Google Drive.
+- Proyek Supabase gratis yang tidak dibuka selama 7 hari akan dijeda.
+  Buka dashboard Supabase dan klik "Restore" kalau itu terjadi; data
+  tidak hilang.
+
+
+MEMPERBARUI APLIKASI
+--------------------
+Kalau nanti ada versi baru index.html, ganti file di Netlify (seret
+folder lagi ke tab "Deploys"). Ubah juga VERSION di sw.js, misalnya
+"indek-v2". HP akan memuat versi baru otomatis saat aplikasi dibuka.
+
+BUKTI PEMBAYARAN (FOTO & FILE) — jalankan sekali
+------------------------------------------------
+Supaya foto/file bukti ikut tersinkron ke semua perangkat:
+1. Supabase > SQL Editor > New query.
+2. Buka file supabase-bukti.sql, salin semua isinya, tempel, lalu Run.
+   Kalau muncul peringatan "destructive operation", pilih Run query.
+3. Selesai. Foto dikecilkan otomatis (maks. 1600 px) supaya hemat
+   ruang. Paket gratis Supabase memberi 1 GB untuk file.
+Tanpa langkah ini, bukti tetap tersimpan di perangkat yang memotretnya,
+tapi tidak muncul di perangkat lain.
