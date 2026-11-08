@@ -650,6 +650,82 @@ input,select,textarea{font-size:16px!important}
 .epstatus.paid{background:color-mix(in srgb,var(--in) 14%,transparent);color:var(--in)}
 .epstatus.over{background:var(--gaji-soft);color:var(--gaji)}
 .epstatus.open{background:var(--surface-2);color:var(--muted)}
+
+/* ===== rencana ===== */
+.bellbtn{position:relative}
+.bdg{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;border-radius:999px;background:var(--out);color:#fff;font-size:.66rem;font-weight:800;display:grid;place-items:center;padding:0 4px;border:2px solid var(--bg)}
+.pstrip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pst{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:2px;min-width:0;box-shadow:var(--shadow)}
+.pst b{font-size:clamp(.84rem,3.6vw,1.05rem);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pst small{font-size:.72rem;color:var(--muted)}
+.pst.bad{background:var(--out-soft);border-color:transparent}.pst.bad b{color:var(--out)}
+.pst.warn{background:var(--free-soft);border-color:transparent}.pst.warn b{color:var(--free)}
+.rtab{flex:1;border:0;background:transparent;color:var(--muted);font-weight:700;font-size:.86rem;padding:9px 6px;border-radius:999px}
+.rtab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.planbody{display:flex;flex-direction:column;gap:14px}
+.pgh{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.pgh b{font-size:.98rem}.pgh .num{font-weight:700;color:var(--muted);white-space:nowrap}
+.polist{list-style:none;margin:0;padding:0;display:flex!important;flex-direction:column;gap:8px}
+.polist li.po{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;gap:12px;align-items:center;padding:12px!important;border-radius:14px;background:var(--surface-2)!important;border:1px solid transparent!important}
+.po-late{border-color:color-mix(in srgb,var(--out) 45%,transparent)!important;background:var(--out-soft)!important}
+.po-today{border-color:color-mix(in srgb,var(--free) 50%,transparent)!important}
+.po-paid{opacity:.8}
+.poic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center}
+.poic.s-gaji{background:var(--gaji-soft);color:var(--gaji)}.poic.s-free{background:var(--free-soft);color:var(--free)}
+.pomid{min-width:0;display:flex;flex-direction:column;gap:3px}
+.pomid .t-main{font-weight:700;overflow-wrap:anywhere}
+.pomid .t-meta{font-size:.78rem;color:var(--muted)}
+.rep{font-size:.66rem;font-weight:700;color:var(--gaji);background:var(--gaji-soft);border-radius:999px;padding:1px 7px;white-space:nowrap}
+.duechip{align-self:flex-start;font-size:.7rem;font-weight:800;border-radius:999px;padding:2px 8px;background:var(--surface);color:var(--muted)}
+.d-late{background:var(--out);color:#fff}.d-today{background:var(--free);color:#fff}.d-soon{background:var(--free-soft);color:var(--free)}.d-paid{background:color-mix(in srgb,var(--in) 14%,transparent);color:var(--in)}
+.poright{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.poright .num{font-weight:700;white-space:nowrap}
+.poacts{display:flex;gap:4px;align-items:center}
+.paybtn{display:inline-flex;align-items:center;gap:4px;border:0;background:var(--accent);color:#fff;border-radius:10px;padding:7px 11px;font-weight:800;font-size:.8rem}
+.pico{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:10px;height:32px;min-width:32px;display:grid;place-items:center;font-size:.72rem;font-weight:800}
+.pico.arm{background:var(--free);border-color:var(--free);color:#fff;padding:0 8px}
+.poacts>button:not(.paybtn):not(.pico){border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:6px 10px;font-size:.76rem;font-weight:700}
+.paidtag{display:inline-flex;align-items:center;gap:4px;color:var(--in);font-weight:800;font-size:.78rem}
+.pgfoot{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.payadd.ghosty{border-color:var(--line);color:var(--muted)}
+.planadd{width:100%;padding:13px}
+.gsum{display:grid;gap:12px}
+.ggrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ggrid>div{background:var(--surface-2);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.ggrid b{font-size:clamp(.84rem,3.4vw,1rem);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gbar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:color-mix(in srgb,var(--in) 30%,var(--surface-2))}
+.gbar i{display:block;height:100%}.gbar .b-out{background:var(--out)}.gbar .b-plan{background:var(--free)}
+.ps-legend .lo{background:var(--out)}.ps-legend .lp{background:var(--free)}.ps-legend .lf{background:color-mix(in srgb,var(--in) 30%,var(--surface-2))}
+.gest{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;border-radius:14px;padding:12px 14px;background:linear-gradient(135deg,var(--accent),#5b3df5);color:#fff}
+.gest span{font-size:.84rem;font-weight:600;color:#e6e9ff}.gest b{font-size:1.25rem}
+.gest.neg{background:var(--out)}
+.note .err,.note.err{color:var(--out)}
+.estrow{background:var(--accent-soft);border-radius:10px;padding:8px 10px;font-weight:700}.estrow span:first-child{color:var(--accent)}
+.estrow.neg{background:var(--out-soft)}.estrow.neg span{color:var(--out)!important}
+.planlink{display:inline-flex;align-items:center;gap:6px;margin-top:2px}
+.remind{border-color:color-mix(in srgb,var(--free) 50%,var(--line))}
+.bellic{background:var(--free-soft)!important;color:var(--free)!important}
+.paybanner{display:flex;gap:10px;align-items:flex-start;background:var(--accent-soft);color:var(--ink);border:1px solid var(--accent);border-radius:14px;padding:10px 12px;font-size:.85rem}
+.paybanner svg{color:var(--accent);flex:none;margin-top:2px}.paybanner span{flex:1;min-width:0}
+.paybanner button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:6px 10px;font-weight:700;flex:none}
+.plbox{max-width:520px}
+.plform{display:grid;gap:12px}
+.plform .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.chk2{flex-direction:row!important;align-items:flex-start;gap:10px!important;background:var(--surface-2);border-radius:12px;padding:10px 12px;cursor:pointer}
+.chk2 input{width:20px;height:20px;margin-top:2px;flex:none}
+.chk2 span{display:flex;flex-direction:column;gap:2px;color:var(--ink)}.chk2 small{font-weight:500;color:var(--muted)}
+.plbtns{display:grid;grid-template-columns:2fr 1fr;gap:8px}.plbtns .primary{padding:12px}
+.ghostbtn{border:1px solid var(--line);background:var(--surface-2);color:var(--ink);border-radius:14px;font-weight:700}
+@media (max-width:620px){.ggrid{grid-template-columns:repeat(2,minmax(0,1fr))}.pstrip .pst small{display:none}}
+@media (max-width:420px){.plform .grid2{grid-template-columns:1fr}}
+
+.bellbtn[aria-current="page"]{display:none}
+@media (max-width:560px){.pstrip{grid-template-columns:repeat(2,minmax(0,1fr))}.pstrip .pst:last-child{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center}.pst b{font-size:.95rem}}
+
+.duewrap{position:relative;display:block}.duewrap input{padding-right:40px}
+.duewrap button{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border:0;border-radius:8px;background:var(--surface);color:var(--muted);font-size:1.1rem;font-weight:800}
+.d-nodate{background:var(--surface);color:var(--muted);border:1px dashed var(--line)}
+.po-nodate .poic{opacity:.8}
 </style>
 
 </head>
@@ -679,7 +755,7 @@ input,select,textarea{font-size:16px!important}
 <div class="app">
   <aside class="side" aria-label="Menu utama">
     <a href="#beranda" class="sbrand" data-go="beranda"><svg class="logo sm" viewBox="0 0 120 120" role="img" aria-label="Logo Catatan Keuangan Indek"><defs><radialGradient id="lgA" cx="85%" cy="10%" r="80%"><stop offset="0" stop-color="#5b78ff" stop-opacity=".85"/><stop offset="1" stop-color="#5b78ff" stop-opacity="0"/></radialGradient><radialGradient id="lgB" cx="0%" cy="100%" r="70%"><stop offset="0" stop-color="#ef8a17" stop-opacity=".45"/><stop offset="1" stop-color="#ef8a17" stop-opacity="0"/></radialGradient></defs><rect width="120" height="120" rx="30" fill="#0f1730"/><rect width="120" height="120" rx="30" fill="url(#lgA)"/><rect width="120" height="120" rx="30" fill="url(#lgB)"/><path d="M30 46H90M30 60H90M30 74H90" stroke="#fff" stroke-opacity=".12" stroke-width="2"/><rect x="31" y="66" width="14" height="25" rx="5" fill="#8fa3ff"/><rect x="53" y="52" width="14" height="39" rx="5" fill="#c7d1ff"/><rect x="75" y="42" width="14" height="49" rx="5" fill="#fff"/><circle cx="82" cy="27" r="9" fill="#ef8a17"/><rect x="27" y="93" width="66" height="3" rx="1.5" fill="#fff" fill-opacity=".35"/></svg><div><div class="brand-k">CATATAN KEUANGAN</div><div class="sname">indek<span class="dot">.</span></div></div></a>
-    <nav class="snav"><a href="#beranda" class="navi" data-go="beranda"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg><span>Beranda</span></a><a href="#riwayat" class="navi" data-go="riwayat"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11"/><path d="M9 12h11"/><path d="M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></svg><span>Riwayat</span></a><a href="#catat" class="navi" data-go="catat"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg><span>Catat</span></a><a href="#proyek" class="navi" data-go="proyek"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg><span>Proyek</span></a><a href="#laporan" class="navi" data-go="laporan"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg><span>Laporan</span></a><a href="#sampah" class="navi navtrash" data-go="sampah"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg><span>Sampah</span><b class="cnt" id="trashCntSide" hidden></b></a><a href="#pengaturan" class="navi" data-go="pengaturan"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg><span>Pengaturan</span></a></nav>
+    <nav class="snav"><a href="#beranda" class="navi" data-go="beranda"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg><span>Beranda</span></a><a href="#riwayat" class="navi" data-go="riwayat"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11"/><path d="M9 12h11"/><path d="M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></svg><span>Riwayat</span></a><a href="#catat" class="navi" data-go="catat"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg><span>Catat</span></a><a href="#proyek" class="navi" data-go="proyek"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg><span>Proyek</span></a><a href="#rencana" class="navi" data-go="rencana"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg><span>Rencana</span><b class="cnt" id="planCntSide" hidden></b></a><a href="#laporan" class="navi" data-go="laporan"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg><span>Laporan</span></a><a href="#sampah" class="navi navtrash" data-go="sampah"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg><span>Sampah</span><b class="cnt" id="trashCntSide" hidden></b></a><a href="#pengaturan" class="navi" data-go="pengaturan"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg><span>Pengaturan</span></a></nav>
   </aside>
   <div class="mainc">
     <header class="topbar">
@@ -690,6 +766,7 @@ input,select,textarea{font-size:16px!important}
           <span id="monthLabel"></span>
           <button class="icon-btn" id="next" aria-label="Bulan berikutnya">›</button>
         </div>
+        <a href="#rencana" class="gearbtn bellbtn" data-go="rencana" aria-label="Rencana &amp; pengingat"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg><b class="bdg" id="planBadge" hidden></b></a>
         <a href="#pengaturan" class="gearbtn" data-go="pengaturan" aria-label="Pengaturan"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg></a>
       </div>
     </header>
@@ -710,6 +787,7 @@ input,select,textarea{font-size:16px!important}
 
 
 
+        <section class="panel remind" id="remindCard" hidden></section>
         <section class="panel posisi" id="posisi" aria-live="polite"></section>
         <div class="quick">
           <a href="#catat" class="qa q-in" data-go="catat" data-preset="in"><span class="qi"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7 7 7-7"/></svg></span><span>Pemasukan</span></a>
@@ -732,6 +810,7 @@ input,select,textarea{font-size:16px!important}
   <section class="panel">
     <div class="ph"><div class="sech"><svg class="sechi" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg><h2 id="formTitle">Catat transaksi</h2></div><button type="button" class="ghost" id="cancelEdit" hidden>Batal edit</button></div>
     <form id="form" novalidate>
+      <div class="paybanner full" id="payBanner" role="status" hidden></div>
       <div class="seg full" role="group" aria-label="Jenis transaksi">
         <button type="button" class="i" data-type="in" aria-pressed="true">Pemasukan</button>
         <button type="button" class="o" data-type="out" aria-pressed="false">Pengeluaran</button>
@@ -861,6 +940,16 @@ input,select,textarea{font-size:16px!important}
     <p class="note" id="expMsg">Laporan berisi ringkasan per sumber, rekap per proyek, gaji per bulan, total keseluruhan, dan rincian semua transaksi.</p>
   </section>
       </section>
+      <section class="view" id="v-rencana" hidden>
+        <div class="pstrip" id="planSum"></div>
+        <div class="subtabs" role="tablist" aria-label="Rencana">
+          <button type="button" class="rtab" data-rt="jadwal" aria-selected="true">Jadwal</button>
+          <button type="button" class="rtab" data-rt="gaji" aria-selected="false">Gaji</button>
+          <button type="button" class="rtab" data-rt="proyek" aria-selected="false">Proyek</button>
+        </div>
+        <div id="planBody" class="planbody"></div>
+        <button type="button" class="primary planadd" id="planAdd">+ Tambah rencana pembayaran</button>
+      </section>
       <section class="view" id="v-sampah" hidden>
         <div class="trashinfo"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg><div><b>Item di Sampah terhapus otomatis setelah 60 hari.</b><br>Pulihkan kalau terhapus tidak sengaja, atau hapus permanen supaya langsung hilang.</div></div>
         <div class="subtabs" role="tablist" aria-label="Isi sampah">
@@ -877,6 +966,13 @@ input,select,textarea{font-size:16px!important}
       </section>
       <section class="view" id="v-pengaturan" hidden>
         <a href="#sampah" class="panel setrow" data-go="sampah"><div class="sech"><svg class="sechi trashi" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg><h2>Sampah</h2></div><span class="sstat" id="trashStat">Kosong</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+        <section class="panel acc coll" id="notifPanel">
+          <div class="sech"><svg class="sechi" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg><h2>Pengingat &amp; notifikasi</h2></div>
+          <p class="note" id="ntState"></p>
+          <div class="row"><button class="main" id="ntOn">Aktifkan notifikasi</button><button id="ntTest" hidden>Kirim notifikasi tes</button><button id="ntCal">Tambah semua jadwal ke kalender</button></div>
+          <p class="note"><b>Paling andal:</b> Tambah ke kalender. Kalender HP/tablet/laptop akan mengingatkan walaupun Indek sedang ditutup, termasuk di iPhone dan tablet Huawei. Ulangi kalau Anda menambah rencana baru.</p>
+          <p class="note" id="ntMsg"></p>
+        </section>
         <section class="panel acc coll" id="layoutPanel">
           <div class="sech"><svg class="sechi" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M8 4v14"/></svg><h2>Tampilan</h2></div>
           <p class="note">Pilih susunan menu. "Otomatis" memakai menu samping di tablet dan laptop, dan menu bawah di HP.</p>
@@ -958,6 +1054,22 @@ input,select,textarea{font-size:16px!important}
         <li>Di aplikasi <b>File</b>: buka <b>Penyimpanan internal</b>, lalu <b>Download</b> (kadang di <b>Download/Browser</b>).</li>
         <li>Supaya browser selalu bertanya lokasi simpan: Chrome › ⋮ › Setelan › Download › aktifkan <b>Tanyakan lokasi download</b>. Huawei Browser › ≡ › Setelan › <b>Unduhan</b> › atur lokasi.</li>
         <li>Paling andal: pakai <b>Unduh lewat server</b> (perlu masuk akun sinkron).</li></ol></div>
+    </div></div></div>
+  <div class="modal" id="planSheet" role="dialog" aria-modal="true" aria-labelledby="plHead" hidden><div class="mbox plbox">
+    <div class="mhead"><b id="plHead">Rencana pembayaran baru</b><button type="button" id="plClose" aria-label="Tutup">×</button></div>
+    <div class="mbody plform">
+      <div><div class="fieldset-lbl">Untuk</div><div class="seg" role="group" aria-label="Rencana untuk"><button type="button" class="s-gaji" data-pls="gaji" aria-pressed="true">Gaji</button><button type="button" class="s-free" data-pls="proj" aria-pressed="false">Proyek</button></div></div>
+      <label id="plProjWrap" hidden>Proyek<select id="plProj"></select></label>
+      <label>Kategori<select id="plCat"></select></label>
+      <label id="plSubWrap" hidden>Jenis<select id="plSub"></select></label>
+      <label><span><span id="plTitleLbl">Keterangan</span> <span class="opt">(opsional)</span></span><input id="plTitle" maxlength="60" placeholder="mis. Kontrakan November, sewa sondir minggu 2" autocomplete="off"></label>
+      <div class="grid2"><label>Jumlah<span class="amt"><input id="plAmt" inputmode="numeric" placeholder="1.500.000" autocomplete="off"></span></label><label><span>Jatuh tempo <span class="opt">(opsional)</span></span><span class="duewrap"><input type="date" id="plDue"><button type="button" id="plDueClr" aria-label="Kosongkan tanggal">×</button></span></label></div>
+      <label class="chk2" id="plRepeatWrap"><input type="checkbox" id="plRepeat"><span><b>Ulangi setiap bulan</b><small>Untuk tagihan rutin: kontrakan, internet, listrik, kirim orang tua, arisan</small></span></label>
+      <p class="note" id="plNoDate">Tanpa tanggal, rencana tetap dihitung di sisa gaji dan untung proyek, tapi tidak ada pengingat. Tanggal bisa diisi nanti lewat Edit.</p>
+      <label id="plRemindWrap">Ingatkan saya<select id="plRemind"><option value="0">Pada hari jatuh tempo</option><option value="1">1 hari sebelumnya</option><option value="3">3 hari sebelumnya</option><option value="7">7 hari sebelumnya</option></select></label>
+      <p class="err" id="plErr" hidden></p>
+      <div class="plbtns"><button type="button" class="primary" id="plSave">Simpan rencana</button><button type="button" class="ghostbtn" id="plCancel">Batal</button></div>
+      <button type="button" class="formdel" id="plDel" hidden>Hapus rencana</button>
     </div></div></div>
   <div class="modal" id="attModal" role="dialog" aria-modal="true" aria-labelledby="attTitle" hidden><div class="mbox"><div class="mhead"><b id="attTitle">Bukti</b><button type="button" id="attClose" aria-label="Tutup">×</button></div><div class="mbody" id="attBody"></div></div></div>
   <div class="updbar" id="updBar" role="status" hidden><span>Versi baru Indek sudah siap.</span><button type="button" id="updBtn">Perbarui</button></div>
@@ -1091,7 +1203,7 @@ const Sync={client:null,user:null,timer:null,busy:false,again:false,
     return changed},
 };
 async function reloadState(){const tx=await IDB.all("tx"),pj=await IDB.all("projects");
-  state.loaded=true;state.tx=tx.filter(t=>!t.trashedAt);state.projects=pj.filter(p=>!p.trashedAt);state.trash={tx:tx.filter(t=>t.trashedAt),projects:pj.filter(p=>p.trashedAt)};
+  state.loaded=true;state.tx=tx.filter(t=>!t.trashedAt);state.plans=pj.filter(p=>p.kind==="plan");const pr=pj.filter(p=>p.kind!=="plan");state.projects=pr.filter(p=>!p.trashedAt);state.trash={tx:tx.filter(t=>t.trashedAt),projects:pr.filter(p=>p.trashedAt)};
   render();updateUsage();if(!reloadState.purging){reloadState.purging=true;purgeOld().finally(()=>reloadState.purging=false)}}
 
 async function boot(){
@@ -1138,9 +1250,9 @@ $("acOut").onclick=async()=>{await Sync.client?.auth.signOut();location.reload()
 $("acNow").onclick=()=>Sync.run();
 
 /* ---------- backup & pulihkan ---------- */
-const MIME={pdf:"application/pdf",xlsx:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",docx:"application/vnd.openxmlformats-officedocument.wordprocessingml.document",json:"application/json",jpg:"image/jpeg",jpeg:"image/jpeg",png:"image/png"};
+const MIME={pdf:"application/pdf",xlsx:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",docx:"application/vnd.openxmlformats-officedocument.wordprocessingml.document",json:"application/json",jpg:"image/jpeg",jpeg:"image/jpeg",png:"image/png",ics:"text/calendar"};
 let dlPending=null,dlUrl=null;
-const TYPEDESC={pdf:"Dokumen PDF",xlsx:"Buku kerja Excel",docx:"Dokumen Word",json:"Backup Indek",jpg:"Gambar",jpeg:"Gambar",png:"Gambar"};
+const TYPEDESC={pdf:"Dokumen PDF",xlsx:"Buku kerja Excel",docx:"Dokumen Word",json:"Backup Indek",jpg:"Gambar",jpeg:"Gambar",png:"Gambar",ics:"Kalender"};
 const isTouch=/Android|iPhone|iPad|iPod|HarmonyOS|Mobile/i.test(navigator.userAgent)||(navigator.maxTouchPoints>1&&/Macintosh/.test(navigator.userAgent));
 const canPick=()=>typeof window.showSaveFilePicker==="function"&&!isTouch;
 async function pickHandle(name){const ext=(name.split(".").pop()||"").toLowerCase(),type=MIME[ext]||"application/octet-stream";
@@ -1175,7 +1287,7 @@ async function cleanExports(base){try{const {data}=await Sync.client.storage.fro
   const old=data.filter(o=>{const t=+String(o.name).split("-")[0];return t&&Date.now()-t>864e5}).map(o=>`${base}/${o.name}`);
   if(old.length)await Sync.client.storage.from(BUCKET).remove(old)}catch(e){}}
 async function dlShare(){const f=dlPending;if(!f)return;try{await navigator.share({files:[f],title:f.name});closeDl();toast("File disimpan / dibagikan")}catch(e){if(e&&e.name!=="AbortError")toast("Berbagi tidak tersedia, pakai Simpan atau Buka")}}
-$("bkDown").onclick=()=>{const data={app:"catatan-keuangan-indek",version:1,exported:new Date().toISOString(),tx:state.tx.concat(state.trash.tx),projects:state.projects.concat(state.trash.projects)};
+$("bkDown").onclick=()=>{const data={app:"catatan-keuangan-indek",version:1,exported:new Date().toISOString(),tx:state.tx.concat(state.trash.tx),projects:state.projects.concat(state.trash.projects,state.plans||[])};
   saveBlob(new Blob([JSON.stringify(data)],{type:"application/json"}),`backup-indek-${iso(new Date())}.json`);acMsg("Backup siap. Simpan file ini di tempat aman, misalnya Google Drive.")};
 $("bkUp").onclick=()=>$("bkFile").click();
 $("bkFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;e.target.value="";
@@ -1207,7 +1319,7 @@ $("nudgeGo").onclick=()=>{go("pengaturan");const c=$("installCard");if(c&&!c.cla
 $("nudgeX").onclick=()=>{$("installNudge").hidden=true;try{localStorage.setItem("indek-install-dismiss","1")}catch(e){}};
 
 /* ---------- form ---------- */
-function calcMode(){const c=$("cat").value,s=$("sub").value;
+function calcMode(){if(payingPlan)return null;const c=$("cat").value,s=$("sub").value;
   if(type!=="out"||src!=="free"||c!=="Bayar Pekerja")return null;
   return s==="Tim Survei"?"survei":"m2"}
 function setType(t){type=t;
@@ -1289,7 +1401,7 @@ $("form").addEventListener("submit",async e=>{e.preventDefault();
     if(m==="survei")t.calc={orang:parseAmt($("cOrang").value),hari:parseAmt($("cHari").value),upah:parseAmt($("cUpah").value)};
     if(m==="m2")t.calc={luas:parseDec($("cLuas").value),tarif:parseAmt($("cTarif").value)};}
   if(type!=="in"&&t.cat==="Lain-lain"){if(otherTxt)t.sub=otherTxt;else delete t.sub}
-  t.id=editing?String(editing.id):newId();t.files=await commitFormFiles(t.id);if(!t.files.length)delete t.files;addTx(t);view=ym(date);const wasEdit=!!editing;exitEdit();if(wasEdit){setType("in");toast("Perubahan disimpan");go("riwayat")}else toast("Transaksi disimpan");
+  t.id=editing?String(editing.id):newId();t.files=await commitFormFiles(t.id);if(!t.files.length)delete t.files;addTx(t);if(payingPlan&&!editing)markPlanPaid(t);view=ym(date);const wasEdit=!!editing;exitEdit();if(wasEdit){setType("in");toast("Perubahan disimpan");go("riwayat")}else toast("Transaksi disimpan");
   ["amount","memo","cUpah","cLuas","cTarif","npName","npClient","npValue","otherIn"].forEach(id=>$(id).value="");
   if(newP){projOptions();$("projSel").value=newP.id}$("newProj").hidden=true;$("cOrang").value=1;$("cHari").value=1;
   updateCalc();render();
@@ -1328,7 +1440,7 @@ function renderNow(){
   bars($("barsGaji"),tx.filter(t=>t.type==="out"&&!t.extra&&t.src==="gaji"),"var(--gaji)");
   bars($("barsFree"),tx.filter(t=>t.type==="out"&&!t.extra&&t.src==="free"),"var(--free)");
   $("clientList").innerHTML=[...new Set(state.projects.map(p=>p.client).filter(Boolean))].sort().map(v=>`<option value="${esc(v)}">`).join("");
-  projOptions();renderProjects();renderGaji();if(typeof renderHome==="function")renderHome();if(typeof renderTrash==="function")renderTrash();if(typeof renderExp==="function")renderExp();
+  projOptions();renderProjects();renderGaji();if(typeof renderHome==="function")renderHome();if(typeof renderTrash==="function")renderTrash();if(typeof renderExp==="function")renderExp();if(typeof renderPlans==="function")renderPlans();
   bars($("barsExtra"),tx.filter(t=>t.extra).map(t=>({...t,sub:"dari "+SRC[t.src].name})),"var(--out)");
 
   const F={all:"Semua",gaji:"Gaji",free:"Freelance",lain:"Lain-lain"};
@@ -1418,7 +1530,7 @@ function renderProjects(force){
       :`<div class="rv"><span>Pemasukan</span><span class="num in">${rp(g.inc)}</span></div>`}
       <div class="rv"><span>Pengeluaran proyek</span><span class="num out">${rp(g.out)}</span></div>
       <div class="rv sisa"><span>Sisa uang</span><span class="num ${g.sisa<0?"out":""}">${sRp(g.sisa)}</span></div>
-      ${g.p.id&&g.p.value?`<div class="rv"><span>Perkiraan sisa jika lunas</span><span class="num">${sRp(g.p.value-g.out)}</span></div>`:""}
+      ${planCardHtml(g)}
       ${Object.keys(g.by).length?`<div class="pbreak"><b>Rincian pengeluaran</b>${Object.entries(g.by).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div><span>${esc(k)}</span><span class="num">${rp(v)}</span></div>`).join("")}</div>`:""}
       ${g.p.id?`<div class="pacts"><button type="button" data-pedit="${esc(g.p.id)}">Edit proyek</button><button type="button" class="pdel" data-pdel="${esc(g.p.id)}"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg><span>Hapus proyek</span></button></div>
       ${pendingDel===g.p.id?`<div class="pdelbox"><b>Hapus proyek "${esc(g.p.name)}"?</b>
@@ -1578,9 +1690,10 @@ function reportProject(pid){const PS=projStats().filter(g=>g.p.id);
     const outs=g.tx.filter(t=>t.type==="out").sort((a,b)=>a.date.localeCompare(b.date)).map(t=>[fmtD(t.date),t.cat||"",(t.sub||"")+calcText(t).replace(/^ · /,t.sub?" · ":""),t.memo||"",t.amount]);
     outs.push(["Total pengeluaran","","","",g.out]);
     return {title:"Laporan Proyek: "+p.name,info:[["Proyek",p.name],["Pemberi proyek",p.client||"-"],["Dicetak",fmtD(iso(new Date()))]],slug:"proyek-"+p.name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),sections:[
-      {name:"Ringkasan",title:"Ringkasan proyek",head:["Keterangan","Nilai"],rows:[["Nilai proyek",p.value||0],["Sudah dibayar",g.inc],["Belum dibayar",g.unpaid],["Persentase dibayar",p.value?pct+"%":"-"],["Status",g.status==="over"?"Lebih bayar":g.status==="paid"?"Lunas":g.status==="open"?"Belum lunas":"Nilai belum diisi"],["Kelebihan bayar",g.over],["Pengeluaran proyek",g.out],["Sisa uang (dibayar − pengeluaran)",g.sisa],["Perkiraan sisa jika lunas",(p.value||0)-g.out]]},
+      {name:"Ringkasan",title:"Ringkasan proyek",head:["Keterangan","Nilai"],rows:[["Nilai proyek",p.value||0],["Sudah dibayar",g.inc],["Belum dibayar",g.unpaid],["Persentase dibayar",p.value?pct+"%":"-"],["Status",g.status==="over"?"Lebih bayar":g.status==="paid"?"Lunas":g.status==="open"?"Belum lunas":"Nilai belum diisi"],["Kelebihan bayar",g.over],["Pengeluaran proyek",g.out],["Sisa uang (dibayar − pengeluaran)",g.sisa],["Rencana biaya belum dibayar",projProfit(g).planOpen],["Estimasi keuntungan bersih",projProfit(g).est],["Margin keuntungan",projProfit(g).margin!==null?Math.round(projProfit(g).margin*100)+"%":"-"]]},
       {name:"Pembayaran",title:"Pembayaran dari pemberi proyek",head:["Pembayaran","Tanggal","Keterangan","Jumlah (Rp)","% nilai proyek"],rows:pays,total:true},
       {name:"Pengeluaran",title:"Pengeluaran proyek",head:["Tanggal","Kategori","Rincian","Catatan","Jumlah (Rp)"],rows:outs,total:true},
+      {name:"Rencana biaya",title:"Rencana biaya proyek",head:["Jatuh tempo","Rencana","Kategori","Status","Jumlah (Rp)"],rows:projOccs(p.id).map(o=>[o.date?fmtD(o.date):"Tanpa tanggal",planTitle(o.p),o.p.cat,o.status==="paid"?"Dibayar":o.status==="late"?"Terlambat":o.status==="skip"?"Dilewati":"Belum dibayar",o.amount])},
       {name:"Per kategori",title:"Pengeluaran per kategori",head:["Kategori","Jumlah (Rp)","Porsi"],rows:byCat(g.tx.filter(t=>t.type==="out")),total:true}]}}
   const sumRows=one.map(g=>[g.p.name,g.p.client||"-",g.p.value||0,g.inc,g.unpaid,g.p.value?pctOf(g.inc,g.p.value)+"%":"-",g.status==="over"?"Lebih bayar "+rp(g.over):g.status==="paid"?"Lunas":g.status==="open"?"Belum lunas":"-",g.out,g.sisa]);
   const t=k=>one.reduce((a,g)=>a+g[k],0),tv=one.reduce((a,g)=>a+(g.p.value||0),0);sumRows.push(["Total semua proyek","",tv,t("inc"),t("unpaid"),tv?pctOf(t("inc"),tv)+"%":"-","",t("out"),t("sisa")]);
@@ -1594,6 +1707,8 @@ function reportProject(pid){const PS=projStats().filter(g=>g.p.id);
 function reportGaji(scope){const P=periodOf(scope),tx=state.tx.filter(t=>t.src==="gaji"&&P.inP(t)).sort((a,b)=>a.date.localeCompare(b.date));
   const inc=sumAmt(tx.filter(t=>t.type==="in")),out=sumAmt(tx.filter(t=>t.type==="out")),ext=sumAmt(tx.filter(t=>t.extra));
   const secs=[{name:"Ringkasan",title:"Ringkasan gaji",head:["Keterangan","Nilai"],rows:[["Gaji masuk",inc],["Pengeluaran dari gaji",out],["  termasuk pengeluaran tambahan",ext],[inc-out<0?"Minus":"Sisa gaji",inc-out]]}];
+  if(scope!=="all"){const S=gajiSummary(view);secs[0].rows.push(["Rencana belum dibayar",S.planOpen],["Perkiraan sisa setelah semua rencana",S.est]);
+    if(S.occ.length)secs.push({name:"Rencana",title:"Rencana pengeluaran gaji",head:["Jatuh tempo","Rencana","Status","Jumlah (Rp)"],rows:S.occ.map(o=>[o.date?fmtD(o.date):"Tanpa tanggal",planTitle(o.p),o.status==="paid"?"Dibayar":o.status==="late"?"Terlambat":o.status==="skip"?"Dilewati":"Belum dibayar",o.amount])})}
   if(scope==="all"){const GM=gajiMonths(),rows=GM.map(([k,r])=>[mName(k),r.inc,r.out,r.extra,r.inc-r.out,r.inc-r.out<0?"Minus":"Aman"]),gt=GM.reduce((a,[,r])=>[a[0]+r.inc,a[1]+r.out,a[2]+r.extra],[0,0,0]);
     rows.push(["Total",gt[0],gt[1],gt[2],gt[0]-gt[1],""]);secs.push({name:"Per bulan",title:"Gaji per bulan",head:["Bulan","Gaji masuk","Pengeluaran","Termasuk tambahan","Sisa","Status"],rows,total:true})}
   secs.push({name:"Per kategori",title:"Pengeluaran gaji per kategori",head:["Kategori","Jumlah (Rp)","Porsi"],rows:byCat(tx.filter(t=>t.type==="out")),total:true});
@@ -1744,16 +1859,17 @@ renderSecurity();
 if(Lock.cfg())showLock();
 
 /* ---------- menu & navigasi ---------- */
-const VIEWS={sampah:"Sampah",beranda:"Beranda",catat:"Catat",riwayat:"Riwayat",proyek:"Proyek",laporan:"Laporan",pengaturan:"Pengaturan"};
+const VIEWS={rencana:"Rencana",sampah:"Sampah",beranda:"Beranda",catat:"Catat",riwayat:"Riwayat",proyek:"Proyek",laporan:"Laporan",pengaturan:"Pengaturan"};
 let curView="beranda";
 let navDepth=0;
 function go(v,opt){opt=opt||{};if(!VIEWS[v])v="beranda";const changed=v!==curView;curView=v;
   document.querySelectorAll(".view").forEach(x=>x.hidden=x.id!=="v-"+v);
   document.querySelectorAll("[data-go]").forEach(b=>{if(b.classList.contains("seeall")||b.classList.contains("qa")||b.classList.contains("sbrand")||b.classList.contains("tbrand"))return;b.setAttribute("aria-current",b.dataset.go===v?"page":"false")});
-  $("pageTitle").textContent=VIEWS[v];$("monthWrap").hidden=!["beranda","riwayat","laporan"].includes(v);
+  $("pageTitle").textContent=VIEWS[v];$("monthWrap").hidden=!["beranda","riwayat","laporan","rencana"].includes(v);
   if(opt.init)history.replaceState({v},"","#"+v);else if(!opt.pop&&changed){history.pushState({v},"","#"+v);navDepth++}
   $("backBtn").hidden=v==="beranda";document.body.classList.toggle("deep",v!=="beranda");window.scrollTo(0,0)}
 function backCtx(){/* tutup hal yang sedang terbuka dulu, baru pindah halaman */
+  if(!$("planSheet").hidden){closePlan();return true}
   if(!$("dlSheet").hidden){closeDl();return true}
   if(!$("attModal").hidden){closeAtt();return true}
   if(curView==="proyek"&&editProj){editProj=null;renderProjects(true);return true}
@@ -1973,6 +2089,7 @@ function finStats(){
   if(open.length)ins.push({t:"info",m:`Masih ada ${rp(piutang)} yang belum dibayar dari ${open.length} proyek. Terbesar: ${open[0].p.name} (${rp(open[0].unpaid)}).`});
   else if(PS.length)ins.push({t:"good",m:`Semua proyek yang punya nilai sudah lunas.`});
   if(runway!==null)ins.push({t:runway<1?"warn":"info",m:`Dengan rata-rata pengeluaran ${rp(avgOut)}/bulan, saldo sekarang cukup untuk sekitar ${runway>=10?Math.round(runway):runway.toFixed(1).replace(".",",")} bulan${piutang?` (sekitar ${((saldo+piutang)/avgOut).toFixed(1).replace(".",",")} bulan jika semua proyek lunas)`:""}.`});
+  if(typeof planInsights==="function")planInsights().forEach(x=>ins.push(x));
   return {saldo,bySrc,piutang,nilai,diterima,proyeksi,open,lunas,nProj:PS.length,cur,prev,avgOut,runway,rate,st,ins}}
 const INS_IC={good:"✓",bad:"!",warn:"!",info:"i"};
 function renderPosisi(){const el=$("posisi");if(!el)return;const F=finStats();
@@ -2009,6 +2126,235 @@ let lastPStat=null;
   if(lastPStat){for(const id in now){const [st,nm,ov]=now[id],prev=lastPStat[id]&&lastPStat[id][0];
     if(prev&&prev!==st){if(st==="paid")toast(`✓ Proyek "${nm}" sudah LUNAS`);else if(st==="over")toast(`⚠ Proyek "${nm}" lebih bayar ${rp(ov)}`)}}}
   lastPStat=now}}
+
+/* ================= RENCANA PEMBAYARAN & PENGINGAT ================= */
+state.plans=state.plans||[];
+const PLAN_REMIND={0:"Pada hari jatuh tempo",1:"1 hari sebelumnya",3:"3 hari sebelumnya",7:"7 hari sebelumnya"};
+const todayISO=()=>iso(new Date());
+const pMonth=p=>p.due?ym(p.due):(p.month||ym(p.created||todayISO()));
+const pDay=p=>p.due?+p.due.slice(8,10):0;
+const occDate=(p,k)=>!p.due?"":k==="once"?p.due:dayIn(k,pDay(p));
+function addDays(s,n){const x=new Date(s+"T00:00");x.setDate(x.getDate()+n);return iso(x)}
+function addMonths(k,n){const[y,m]=k.split("-").map(Number);const d=new Date(y,m-1+n,1);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}`}
+function dayIn(k,day){const[y,m]=k.split("-").map(Number);const last=new Date(y,m,0).getDate();return `${k}-${String(Math.min(day,last)).padStart(2,"0")}`}
+const daysTo=s=>Math.round((new Date(s+"T00:00")-new Date(todayISO()+"T00:00"))/864e5);
+const fmtDue=s=>s?new Date(s+"T00:00").toLocaleDateString("id-ID",{day:"numeric",month:"short",year:"numeric"}):"Tanpa tanggal";
+function planTitle(p){return p.title||(p.sub&&p.cat!=="Lain-lain"?`${p.cat} · ${p.sub}`:p.cat)}
+function scopeLabel(p){if(p.scope==="proj"){const P=projById(p.projId);return "Proyek "+(P?P.name:"(dihapus)")}return p.extra?"Gaji · tambahan":"Gaji"}
+async function savePlan(p){p.kind="plan";p.updated=Date.now();await IDB.put("projects",p);state.plans=state.plans.filter(x=>x.id!==p.id).concat(p);render();await queue("projects",p.id,p)}
+async function deletePlan(id){await IDB.del("projects",id);await queue("projects",id,null);state.plans=state.plans.filter(x=>x.id!==id);render()}
+let txMap=new Map();
+function refreshTxMap(){txMap=new Map(state.tx.map(t=>[String(t.id),t]))}
+function occ(p,key,date){const id=(p.paid||{})[key],tx=id?txMap.get(String(id)):null,sk=!!(p.skip||{})[key];
+  return {p,key,date,tx,status:tx?"paid":sk?"skip":date&&date<todayISO()?"late":"open",amount:tx?tx.amount:p.amount}}
+const isOpen=o=>o.status==="open"||o.status==="late";
+function scheduleOccs(){refreshTxMap();const upto=addMonths(ym(todayISO()),1),r=[];
+  for(const p of state.plans){if(p.scope==="proj"&&!projById(p.projId))continue;
+    if(p.repeat){if(!p.due){const cur=ym(todayISO());if(pMonth(p)<=cur)r.push(occ(p,cur,""));continue}for(let k=pMonth(p);k<=upto;k=addMonths(k,1))r.push(occ(p,k,occDate(p,k)))}else r.push(occ(p,"once",p.due||""))}
+  return r.sort(byOccDate)}
+function byOccDate(a,b){return (a.date?0:1)-(b.date?0:1)||a.date.localeCompare(b.date)}
+function gajiOccs(k){refreshTxMap();const r=[];
+  for(const p of state.plans.filter(p=>p.scope==="gaji")){if(p.repeat){if(pMonth(p)<=k)r.push(occ(p,k,occDate(p,k)))}else if(pMonth(p)===k)r.push(occ(p,"once",p.due||""))}
+  return r.sort(byOccDate)}
+function gajiSummary(k){const tx=state.tx.filter(t=>t.src==="gaji"&&ym(t.date)===k);
+  const inc=sumAmt(tx.filter(t=>t.type==="in")),out=sumAmt(tx.filter(t=>t.type==="out")),o=gajiOccs(k).filter(x=>x.status!=="skip");
+  const planOpen=sumAmt(o.filter(isOpen)),planPaid=sumAmt(o.filter(x=>x.status==="paid"));
+  const prevInc=sumAmt(state.tx.filter(t=>t.src==="gaji"&&t.type==="in"&&ym(t.date)===addMonths(k,-1)));
+  return {inc,out,planOpen,planPaid,occ:o,now:inc-out,est:inc-out-planOpen,prevInc,nOpen:o.filter(isOpen).length}}
+function projOccs(pid){refreshTxMap();return state.plans.filter(p=>p.scope==="proj"&&p.projId===pid).map(p=>occ(p,"once",p.due||"")).sort(byOccDate)}
+function projProfit(g){const o=projOccs(g.p.id).filter(x=>x.status!=="skip"),planOpen=sumAmt(o.filter(isOpen)),v=g.p.value||0;
+  const est=v-g.out-planOpen;return {occ:o,planOpen,est,cur:g.inc-g.out,margin:v?est/v:null,cost:g.out+planOpen,nOpen:o.filter(isOpen).length}}
+function dueAlerts(){const t=todayISO();return scheduleOccs().filter(o=>isOpen(o)&&o.date&&addDays(o.date,-(o.p.remind||0))<=t)}
+
+/* ---------- tampilan menu Rencana ---------- */
+let planTab="jadwal",planProj="",planArm=null;
+const ICN={
+  bell:'<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>',
+  cal:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  check:'<path d="M20 6 9 17l-5-5"/>',
+  edit:'<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+  skip:'<path d="m5 4 10 8-10 8V4z"/><path d="M19 5v14"/>',
+  wallet:'<path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/>',
+  brief:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/>'};
+const svg=(n,s=18)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICN[n]}</svg>`;
+function relDue(o){if(o.status==="paid")return{c:"paid",t:"Dibayar "+fmtDue(o.tx.date)};if(o.status==="skip")return{c:"skip",t:"Dilewati"};if(!o.date)return{c:"nodate",t:"Belum dijadwalkan"};
+  const d=daysTo(o.date);return d<0?{c:"late",t:`Terlambat ${-d} hari`}:d===0?{c:"today",t:"Hari ini"}:d===1?{c:"soon",t:"Besok"}:d<=7?{c:"soon",t:`${d} hari lagi`}:{c:"later",t:`${d} hari lagi`}}
+function occRow(o,showScope=true){const r=relDue(o),p=o.p,k=`${p.id}|${o.key}`,arm=planArm===k;
+  return `<li class="po po-${r.c}"><span class="poic ${p.scope==="proj"?"s-free":"s-gaji"}">${svg(p.scope==="proj"?"brief":"wallet",17)}</span>
+    <div class="pomid"><div class="t-main">${esc(planTitle(p))}${p.repeat?' <span class="rep" title="Berulang tiap bulan">↻ bulanan</span>':""}</div>
+      <div class="t-meta">${(()=>{const cl=p.sub&&p.cat!=="Lain-lain"?`${p.cat} · ${p.sub}`:p.cat;return [showScope?scopeLabel(p):"",cl!==planTitle(p)?cl:"",fmtDue(o.date)].filter(Boolean).map(esc).join(" · ")})()}</div>
+      <span class="duechip d-${r.c}">${r.t}</span></div>
+    <div class="poright"><span class="num ${o.status==="paid"?"in":""}">${rp(o.amount)}</span>
+      <div class="poacts">${isOpen(o)?`<button type="button" class="paybtn" data-plpay="${k}">${svg("check",15)}Bayar</button>`:o.status==="paid"?`<span class="paidtag">${svg("check",14)}Lunas</span>`:`<button type="button" data-plunskip="${k}">Batal lewati</button>`}
+        <button type="button" class="pico" data-pledit="${p.id}" aria-label="Edit rencana">${svg("edit",15)}</button>
+        ${isOpen(o)&&p.repeat?`<button type="button" class="pico${arm?" arm":""}" data-plskip="${k}" aria-label="Lewati bulan ini" title="Lewati bulan ini">${arm?"Lewati?":svg("skip",15)}</button>`:""}</div></div></li>`}
+function sumTile(lbl,n,amt,cls){return `<div class="pst ${cls}"><span class="lbl">${lbl}</span><b class="num">${rp(amt)}</b><small>${n} tagihan</small></div>`}
+function renderPlans(){if(!$("planBody"))return;if(curView==="rencana")$("monthWrap").hidden=planTab!=="gaji";const all=scheduleOccs(),t=todayISO();
+  const late=all.filter(o=>o.status==="late"),week=all.filter(o=>o.status==="open"&&o.date&&daysTo(o.date)<=7),open=all.filter(isOpen);
+  $("planSum").innerHTML=sumTile("Terlambat",late.length,sumAmt(late),late.length?"bad":"")+sumTile("7 hari ke depan",week.length,sumAmt(week),week.length?"warn":"")+sumTile("Belum dibayar",open.length,sumAmt(open),"");
+  document.querySelectorAll(".rtab").forEach(b=>b.setAttribute("aria-selected",b.dataset.rt===planTab));
+  let h="";
+  if(planTab==="jadwal"){
+    const grp=[["Terlambat",late],["Hari ini",all.filter(o=>o.status==="open"&&o.date===t)],["7 hari ke depan",all.filter(o=>o.status==="open"&&o.date&&daysTo(o.date)>0&&daysTo(o.date)<=7)],["Berikutnya",all.filter(o=>o.status==="open"&&o.date&&daysTo(o.date)>7)],["Tanpa tanggal",all.filter(o=>o.status==="open"&&!o.date)],["Sudah dibayar (30 hari terakhir)",all.filter(o=>o.status==="paid"&&o.tx.date>=addDays(t,-30)).reverse()]];
+    h=grp.filter(g=>g[1].length).map(([n,l])=>`<section class="panel pgroup"><div class="pgh"><b>${n}</b><span class="num">${rp(sumAmt(l))}</span></div><ul class="polist">${l.map(o=>occRow(o)).join("")}</ul></section>`).join("");
+    if(!h)h=`<section class="panel emptyst plempty"><span class="ei">${svg("cal",30)}</span><b>Belum ada rencana pembayaran</b><span>Buat rencana untuk pengeluaran gaji bulanan (kontrakan, internet, kirim orang tua) atau biaya proyek (sewa alat, bayar pekerja, SKA). Indek akan mengingatkan saat jatuh tempo, menghitung sisa gaji, dan estimasi untung bersih setiap proyek.</span></section>`}
+  else if(planTab==="gaji"){const S=gajiSummary(view),base=Math.max(S.inc,S.out+S.planOpen,1);
+    const prev=state.plans.filter(p=>p.scope==="gaji"&&!p.repeat&&pMonth(p)===addMonths(view,-1));
+    h=`<section class="panel gsum"><div class="pgh"><b>Gaji ${mName(view)}</b>${S.nOpen?`<span class="duechip d-soon">${S.nOpen} rencana belum dibayar</span>`:""}</div>
+      <div class="ggrid"><div><span class="lbl">Gaji masuk</span><b class="num in">${rp(S.inc)}</b></div><div><span class="lbl">Sudah dibayar</span><b class="num out">${rp(S.out)}</b></div><div><span class="lbl">Rencana belum dibayar</span><b class="num warnc">${rp(S.planOpen)}</b></div><div><span class="lbl">Sisa gaji sekarang</span><b class="num ${S.now<0?"out":""}">${sRp(S.now)}</b></div></div>
+      <div class="gbar"><i class="b-out" style="width:${Math.min(100,S.out/base*100)}%"></i><i class="b-plan" style="width:${Math.min(100,S.planOpen/base*100)}%"></i></div>
+      <div class="ps-legend"><span><i class="lo"></i>Sudah dibayar</span><span><i class="lp"></i>Rencana</span><span><i class="lf"></i>Sisa</span></div>
+      <div class="gest ${S.est<0?"neg":""}"><span>Perkiraan sisa gaji setelah semua rencana dibayar</span><b class="num">${sRp(S.est)}</b></div>
+      ${S.inc===0?`<p class="note">Gaji ${mName(view)} belum dicatat${S.prevInc?`. Gaji bulan lalu ${rp(S.prevInc)}, jadi perkiraan sisanya sekitar ${sRp(S.prevInc-S.out-S.planOpen)}`:""}. Catat gaji supaya hitungannya tepat.</p>`:S.est<0?`<p class="note err">Rencana pengeluaran melebihi gaji sebesar ${rp(-S.est)}. Kurangi atau tunda sebagian rencana.</p>`:""}
+      </section>
+      <section class="panel pgroup"><div class="pgh"><b>Rencana pengeluaran gaji</b><span class="num">${rp(S.planOpen+S.planPaid)}</span></div>
+      ${S.occ.length?`<ul class="polist">${S.occ.map(o=>occRow(o,false)).join("")}</ul>`:`<p class="empty">Belum ada rencana untuk ${mName(view)}.</p>`}
+      <div class="pgfoot"><button type="button" class="payadd" data-pladd="gaji">+ Rencana gaji</button>${prev.length?`<button type="button" class="payadd ghosty" id="plCopyPrev">Salin ${prev.length} rencana dari ${mName(addMonths(view,-1))}</button>`:""}</div></section>`}
+  else{const PS=projStats().filter(g=>g.p.id);
+    if(!PS.length)h=`<section class="panel emptyst plempty"><span class="ei">${svg("brief",30)}</span><b>Belum ada proyek</b><span>Tambahkan proyek di menu Proyek, lalu buat rencana biayanya di sini.</span></section>`;
+    else{if(!PS.some(g=>g.p.id===planProj))planProj=PS[0].p.id;const g=PS.find(x=>x.p.id===planProj),F=projProfit(g);
+      h=`<div class="rtool"><div class="chips">${PS.map(x=>{const f=projProfit(x);return `<button type="button" class="chip" data-plproj="${esc(x.p.id)}" aria-selected="${x.p.id===planProj}">${esc(x.p.name)}${f.nOpen?`<b>${f.nOpen}</b>`:""}</button>`}).join("")}</div></div>
+      <section class="panel gsum"><div class="pgh"><b>${esc(g.p.name)}</b>${g.p.client?`<span class="lbl">${esc(g.p.client)}</span>`:""}</div>
+        <div class="ggrid"><div><span class="lbl">Nilai proyek</span><b class="num">${g.p.value?rp(g.p.value):"belum diisi"}</b></div><div><span class="lbl">Sudah diterima</span><b class="num in">${rp(g.inc)}</b></div><div><span class="lbl">Biaya sudah dibayar</span><b class="num out">${rp(g.out)}</b></div><div><span class="lbl">Rencana biaya</span><b class="num warnc">${rp(F.planOpen)}</b></div></div>
+        ${g.p.value?`<div class="gbar"><i class="b-out" style="width:${Math.min(100,g.out/g.p.value*100)}%"></i><i class="b-plan" style="width:${Math.min(100,F.planOpen/g.p.value*100)}%"></i></div>
+        <div class="ps-legend"><span><i class="lo"></i>Biaya dibayar</span><span><i class="lp"></i>Rencana biaya</span><span><i class="lf"></i>Untung</span></div>
+        <div class="gest ${F.est<0?"neg":""}"><span>Estimasi keuntungan bersih${F.margin!==null?` · margin ${Math.round(F.margin*100)}%`:""}</span><b class="num">${sRp(F.est)}</b></div>
+        <p class="note">Nilai proyek ${rp(g.p.value)} − biaya dibayar ${rp(g.out)} − rencana biaya ${rp(F.planOpen)}. Untung yang sudah di tangan sekarang: <b>${sRp(F.cur)}</b>.${F.est<0?` <span class="err">Proyek ini diperkirakan rugi.</span>`:""}</p>`
+        :`<p class="note">Isi <b>nilai proyek</b> lewat Edit proyek supaya estimasi untung bersih bisa dihitung.</p>`}
+      </section>
+      <section class="panel pgroup"><div class="pgh"><b>Rencana biaya proyek</b><span class="num">${rp(sumAmt(F.occ))}</span></div>
+        ${F.occ.length?`<ul class="polist">${F.occ.map(o=>occRow(o,false)).join("")}</ul>`:`<p class="empty">Belum ada rencana biaya untuk proyek ini.</p>`}
+        <div class="pgfoot"><button type="button" class="payadd" data-pladd="proj">+ Rencana biaya proyek</button></div></section>
+      <section class="panel"><div class="pgh"><b>Ringkasan semua proyek</b></div><div class="tbl-wrap"><table><thead><tr><th>Proyek</th><th class="r">Nilai</th><th class="r">Total biaya</th><th class="r">Est. untung bersih</th><th class="r">Margin</th></tr></thead>
+        <tbody>${PS.map(x=>{const f=projProfit(x);return `<tr data-plproj="${esc(x.p.id)}"><td>${esc(x.p.name)}</td><td class="r num">${x.p.value?rp(x.p.value):"–"}</td><td class="r num">${rp(f.cost)}</td><td class="r num ${f.est<0?"out":"in"}">${x.p.value?sRp(f.est):"–"}</td><td class="r num">${f.margin!==null?Math.round(f.margin*100)+"%":"–"}</td></tr>`}).join("")}</tbody></table></div></section>`}}
+  $("planBody").innerHTML=h;
+  // lencana & kartu Beranda
+  const al=dueAlerts(),n=al.length;["planBadge","planCntSide"].forEach(id=>{const e=$(id);if(e){e.hidden=!n;e.textContent=n>9?"9+":n}});
+  const rc=$("remindCard");if(rc){rc.hidden=!n;if(n)rc.innerHTML=`<div class="pgh"><div class="sech">${svg("bell",18).replace("<svg",'<svg class="sechi bellic"')}<h2>Pengingat pembayaran</h2></div><a href="#rencana" class="seeall" data-go="rencana">Lihat semua</a></div>
+    <ul class="polist">${al.slice(0,3).map(o=>occRow(o)).join("")}</ul>${n>3?`<p class="note">+${n-3} tagihan lain menunggu.</p>`:""}`}
+  renderNotif()}
+function planInsights(){const r=[],al=dueAlerts(),late=al.filter(o=>o.status==="late");
+  if(late.length)r.push({t:"bad",m:`${late.length} rencana pembayaran terlambat, total ${rp(sumAmt(late))}. Terlama: ${planTitle(late[0].p)} (${fmtDue(late[0].date)}).`});
+  const S=gajiSummary(view);if(S.planOpen>0)r.push({t:S.est<0?"bad":"info",m:`Setelah semua rencana gaji ${mName(view)} dibayar (${rp(S.planOpen)} lagi), perkiraan sisa gaji ${sRp(S.est)}.`});
+  const loss=projStats().filter(g=>g.p.id&&g.p.value).map(g=>[g,projProfit(g)]).filter(([,f])=>f.est<0);
+  if(loss.length)r.push({t:"bad",m:`${loss.length} proyek diperkirakan rugi setelah rencana biaya: ${loss.map(([g,f])=>`${g.p.name} (${sRp(f.est)})`).join(", ")}.`});
+  return r}
+
+/* ---------- lembar tambah/edit rencana ---------- */
+let plScope="gaji",planEditing=null,plDelArm=false;
+function plCatOptions(sel){const o=plScope==="proj"?Object.keys(CATS.free).map(c=>`<option value="o:${esc(c)}">${esc(c)}</option>`).join("")
+    :`<optgroup label="Pengeluaran gaji">${Object.keys(CATS.gaji).map(c=>`<option value="o:${esc(c)}">${esc(c)}</option>`).join("")}</optgroup><optgroup label="Pengeluaran tambahan">${EXTRA.map(c=>`<option value="x:${esc(c)}">${esc(c)}</option>`).join("")}</optgroup>`;
+  $("plCat").innerHTML=o;if(sel&&[...$("plCat").options].some(x=>x.value===sel))$("plCat").value=sel;plSubUpdate()}
+function plSubUpdate(){const v=$("plCat").value||"",c=v.slice(2),subs=v.startsWith("o:")?(CATS[plScope==="proj"?"free":"gaji"][c]||[]):[];
+  $("plSubWrap").hidden=!subs.length;$("plSub").innerHTML=subs.map(s=>`<option>${esc(s)}</option>`).join("");
+  $("plTitleLbl").textContent=c==="Lain-lain"?"Keterangan lain-lain":"Keterangan";}
+function plSetScope(s){plScope=s;document.querySelectorAll("[data-pls]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.pls===s));
+  $("plProjWrap").hidden=s!=="proj";$("plRepeatWrap").hidden=s!=="gaji";
+  $("plProj").innerHTML=state.projects.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join("");
+  if(s==="proj"&&planProj)$("plProj").value=planProj;plCatOptions()}
+function openPlan(p,def){planEditing=p||null;plDelArm=false;def=def||{};
+  plSetScope(p?p.scope:def.scope||"gaji");
+  if(p){if(p.scope==="proj")$("plProj").value=p.projId;plCatOptions((p.extra?"x:":"o:")+p.cat);if(p.sub&&!$("plSubWrap").hidden)$("plSub").value=p.sub}
+  $("plTitle").value=p?p.title||"":"";$("plAmt").value=p?Number(p.amount).toLocaleString("id-ID"):"";
+  $("plDue").value=p?p.due||"":def.due||"";plDueUpdate();
+  $("plRepeat").checked=p?!!p.repeat:false;$("plRemind").value=String(p?p.remind??1:1);
+  $("plHead").textContent=p?"Edit rencana pembayaran":"Rencana pembayaran baru";$("plDel").hidden=!p;$("plDel").textContent="Hapus rencana";$("plDel").classList.remove("confirm");
+  $("plErr").hidden=true;$("planSheet").hidden=false;document.body.classList.add("modal-open");setTimeout(()=>$("plAmt").focus(),50)}
+function closePlan(){$("planSheet").hidden=true;document.body.classList.remove("modal-open");planEditing=null}
+const plErr=m=>{$("plErr").textContent=m;$("plErr").hidden=false};
+async function savePlanForm(){const amt=parseAmt($("plAmt").value),due=$("plDue").value,cv=$("plCat").value;
+  if(plScope==="proj"&&!$("plProj").value)return plErr("Pilih proyeknya dulu. Kalau belum ada, tambahkan di menu Proyek.");
+  if(!amt)return plErr("Isi jumlah rencana pembayaran.");
+  const p=planEditing?{...planEditing}:{id:"pl"+newId(),kind:"plan",created:todayISO(),paid:{},skip:{}};
+  Object.assign(p,{scope:plScope,extra:cv.startsWith("x:"),cat:cv.slice(2),title:$("plTitle").value.trim(),amount:amt,due,repeat:plScope==="gaji"&&$("plRepeat").checked,remind:+$("plRemind").value});
+  if(plScope==="proj"){p.projId=$("plProj").value;delete p.month}else{delete p.projId;p.month=due?ym(due):(planEditing&&planEditing.month&&!planEditing.due?planEditing.month:view)}
+  if(!$("plSubWrap").hidden)p.sub=$("plSub").value;else if(p.cat==="Lain-lain"&&p.title)p.sub=p.title;else delete p.sub;
+  const was=!!planEditing;await savePlan(p);closePlan();toast(was?"Rencana diperbarui":"Rencana disimpan");checkReminders()}
+document.querySelectorAll("[data-pls]").forEach(b=>b.onclick=()=>plSetScope(b.dataset.pls));
+$("plCat").onchange=plSubUpdate;$("plSave").onclick=savePlanForm;$("plCancel").onclick=closePlan;$("plClose").onclick=closePlan;
+$("plAmt").addEventListener("input",e=>{const n=parseAmt(e.target.value);e.target.value=n?n.toLocaleString("id-ID"):""});
+$("planSheet").addEventListener("click",e=>{if(e.target.id==="planSheet")closePlan()});
+$("plDel").onclick=async()=>{if(!planEditing)return;if(!plDelArm){plDelArm=true;$("plDel").textContent="Ketuk lagi untuk menghapus";$("plDel").classList.add("confirm");return}
+  const id=planEditing.id;closePlan();await deletePlan(id);toast("Rencana dihapus (transaksi yang sudah dibayar tetap ada)")};
+
+/* ---------- bayar rencana lewat form Catat ---------- */
+var payingPlan=null;
+function payPlan(id,key){const p=state.plans.find(x=>x.id===id);if(!p)return;if(editing)exitEdit();
+  payingPlan={id,key};setType(p.extra?"extra":"out");setSrc(p.scope==="proj"?"free":"gaji");
+  if([...$("cat").options].some(o=>o.value===p.cat))$("cat").value=p.cat;setSub();
+  if(p.sub&&!$("subWrap").hidden)$("sub").value=p.sub;if(p.cat==="Lain-lain")$("otherIn").value=p.sub||p.title||"";
+  if(p.scope==="proj"){projOptions();$("projSel").value=p.projId;$("newProj").hidden=true}
+  updateCalc();$("amount").readOnly=false;$("amount").value=Number(p.amount).toLocaleString("id-ID");
+  $("date").value=todayISO();$("memo").value=p.title||"";
+  const o=occDate(p,key);
+  $("payBanner").innerHTML=`${svg("cal",18)}<span><b>Membayar rencana: ${esc(planTitle(p))}</b><br>${esc(scopeLabel(p))} · ${o?"jatuh tempo "+fmtDue(o):"tanpa tanggal"} · ${rp(p.amount)}. Ubah jumlah kalau berbeda, lalu simpan.</span><button type="button" id="payCancel">Batal</button>`;
+  $("payBanner").hidden=false;$("payCancel").onclick=()=>{cancelPay();go("rencana")};
+  go("catat");if(typeof updatePct==="function")updatePct();if(typeof updateMinus==="function")updateMinus()}
+function cancelPay(silent){payingPlan=null;if($("payBanner"))$("payBanner").hidden=true}
+async function markPlanPaid(t){if(!payingPlan)return;const p=state.plans.find(x=>x.id===payingPlan.id);const key=payingPlan.key;cancelPay();if(!p)return;
+  const u={...p,paid:{...(p.paid||{}),[key]:t.id}};if(u.skip)delete u.skip[key];await savePlan(u);try{const reg=await navigator.serviceWorker?.getRegistration();if(reg&&reg.getNotifications)(await reg.getNotifications({tag:p.id+"|"+key})).forEach(n=>n.close())}catch(e){}setTimeout(()=>toast(`✓ Rencana "${planTitle(p)}" dibayar`),60)}
+{const _go=go;go=function(v,o){if(v!=="catat"&&payingPlan)cancelPay();const r=_go(v,o);if(v==="rencana")$("monthWrap").hidden=planTab!=="gaji";return r}}
+
+/* ---------- aksi di daftar ---------- */
+document.addEventListener("click",async e=>{
+  const pp=e.target.closest("[data-plproj]");if(pp&&!e.target.closest("[data-go]")){planProj=pp.dataset.plproj;planTab="proyek";renderPlans();return}
+  const rp_=e.target.closest("[data-rproj]");if(rp_){planProj=rp_.dataset.rproj;planTab="proyek";setTimeout(()=>{$("monthWrap").hidden=true;renderPlans()},0)}
+  const pay=e.target.closest("[data-plpay]");if(pay){const [id,key]=pay.dataset.plpay.split("|");payPlan(id,key);return}
+  const ed=e.target.closest("[data-pledit]");if(ed){openPlan(state.plans.find(x=>x.id===ed.dataset.pledit));return}
+  const ad=e.target.closest("[data-pladd]");if(ad){openPlan(null,{scope:ad.dataset.pladd});return}
+  const sk=e.target.closest("[data-plskip]");if(sk){const k=sk.dataset.plskip;if(planArm!==k){planArm=k;renderPlans();setTimeout(()=>{if(planArm===k){planArm=null;renderPlans()}},4000);return}
+    planArm=null;const [id,key]=k.split("|"),p=state.plans.find(x=>x.id===id);if(p){await savePlan({...p,skip:{...(p.skip||{}),[key]:true}});toast("Dilewati untuk bulan ini")}return}
+  const us=e.target.closest("[data-plunskip]");if(us){const [id,key]=us.dataset.plunskip.split("|"),p=state.plans.find(x=>x.id===id);if(p){const s={...(p.skip||{})};delete s[key];await savePlan({...p,skip:s})}return}
+  if(e.target.closest("#plCopyPrev")){const prev=state.plans.filter(p=>p.scope==="gaji"&&!p.repeat&&pMonth(p)===addMonths(view,-1));
+    for(const p of prev){await savePlan({...p,id:"pl"+newId(),due:p.due?dayIn(view,pDay(p)):"",month:view,paid:{},skip:{},created:todayISO()})}toast(`${prev.length} rencana disalin ke ${mName(view)}`);return}
+},true);
+document.querySelectorAll(".rtab").forEach(b=>b.onclick=()=>{planTab=b.dataset.rt;planArm=null;$("monthWrap").hidden=planTab!=="gaji";renderPlans()});
+$("planAdd").onclick=()=>openPlan(null,{scope:planTab==="proyek"?"proj":"gaji"});
+
+/* ---------- notifikasi & kalender ---------- */
+const NKEY="indek-notified";
+async function checkReminders(){const list=dueAlerts();if(!("Notification" in window)||Notification.permission!=="granted")return;
+  let sent={};try{sent=JSON.parse(localStorage.getItem(NKEY))||{}}catch(e){}
+  const t=todayISO();let reg=null;try{reg=await navigator.serviceWorker?.getRegistration()}catch(e){}
+  for(const o of list.slice(0,6)){const k=o.p.id+"|"+o.key;if(sent[k]===t)continue;sent[k]=t;
+    const title=(o.status==="late"?"Terlambat: ":daysTo(o.date)===0?"Jatuh tempo hari ini: ":"Pengingat bayar: ")+planTitle(o.p);
+    const body=`${rp(o.amount)} · ${scopeLabel(o.p)} · jatuh tempo ${fmtDue(o.date)}`;
+    try{if(reg&&reg.showNotification)await reg.showNotification(title,{body,tag:k,icon:"icon-192.png",badge:"favicon-32.png",data:{url:"./#rencana"}});else new Notification(title,{body,tag:k,icon:"icon-192.png"})}catch(e){}}
+  for(const k in sent)if(sent[k]<addDays(t,-30))delete sent[k];try{localStorage.setItem(NKEY,JSON.stringify(sent))}catch(e){}}
+async function enableNotif(){if(!("Notification" in window)){$("ntMsg").textContent="Browser ini tidak mendukung notifikasi. Pakai Tambah ke kalender.";return}
+  const r=await Notification.requestPermission();
+  if(r==="granted"){try{const reg=await navigator.serviceWorker.ready;if(reg.periodicSync){const st=await navigator.permissions.query({name:"periodic-background-sync"}).catch(()=>null);if(!st||st.state==="granted")await reg.periodicSync.register("indek-pengingat",{minInterval:12*3600e3})}}catch(e){}
+    try{localStorage.removeItem(NKEY)}catch(e){}checkReminders();toast("Notifikasi pengingat aktif")}
+  renderNotif()}
+function renderNotif(){if(!$("ntState"))return;const sup="Notification" in window,perm=sup?Notification.permission:"unsupported";
+  $("ntState").textContent=perm==="granted"?"Notifikasi aktif di perangkat ini. Indek mengingatkan saat aplikasi dibuka, dan di sebagian HP Android juga saat aplikasi ditutup.":perm==="denied"?"Notifikasi diblokir. Izinkan lewat pengaturan browser/HP untuk situs ini, atau pakai Tambah ke kalender.":perm==="unsupported"?"Browser ini tidak mendukung notifikasi (misalnya Huawei Browser atau iPhone sebelum Indek dipasang ke layar utama). Pakai Tambah ke kalender.":"Notifikasi belum aktif.";
+  $("ntOn").hidden=perm==="granted"||perm==="unsupported";$("ntTest").hidden=perm!=="granted";
+  if(typeof setStat==="function")setStat("notifPanel",perm==="granted"?"Aktif":"Belum aktif",perm==="granted")}
+function icsEsc(s){return String(s).replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n")}
+function buildIcs(plans){const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Indek//Catatan Keuangan//ID","CALSCALE:GREGORIAN","METHOD:PUBLISH","X-WR-CALNAME:Pengingat Indek"];
+  const stamp=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d+/,"");
+  for(const p of plans.filter(p=>p.due)){const d=p.due.replace(/-/g,""),nd=addDays(p.due,1).replace(/-/g,""),r=p.remind||0;
+    L.push("BEGIN:VEVENT",`UID:${p.id}@indek`,`DTSTAMP:${stamp}`,`DTSTART;VALUE=DATE:${d}`,`DTEND;VALUE=DATE:${nd}`,`SUMMARY:${icsEsc("Bayar: "+planTitle(p)+" ("+rp(p.amount)+")")}`,`DESCRIPTION:${icsEsc(scopeLabel(p)+" · Catatan Keuangan Indek")}`);
+    if(p.repeat)L.push("RRULE:FREQ=MONTHLY");
+    L.push("BEGIN:VALARM","ACTION:DISPLAY",`DESCRIPTION:${icsEsc("Bayar "+planTitle(p))}`,`TRIGGER:${r===0?"PT9H":r===1?"-PT15H":`-P${r-1}DT15H`}`,"END:VALARM","END:VEVENT")}
+  L.push("END:VCALENDAR");return L.join("\r\n")}
+$("ntOn").onclick=enableNotif;
+$("ntTest").onclick=async()=>{try{const reg=await navigator.serviceWorker.getRegistration();const o={body:"Contoh: Kontrakan Rp 1.500.000 jatuh tempo besok.",icon:"icon-192.png",tag:"indek-test",data:{url:"./#rencana"}};
+  if(reg)await reg.showNotification("Pengingat bayar (tes)",o);else new Notification("Pengingat bayar (tes)",o);toast("Notifikasi tes dikirim")}catch(e){toast("Notifikasi tidak bisa ditampilkan di perangkat ini")}};
+$("ntCal").onclick=()=>{refreshTxMap();const open=state.plans.filter(p=>(p.scope!=="proj"||projById(p.projId))&&(p.repeat||!(p.paid&&p.paid.once&&txMap.get(String(p.paid.once)))));
+  if(!open.length){toast("Belum ada rencana yang perlu dimasukkan ke kalender");return}
+  saveBlob(new Blob([buildIcs(open)],{type:"text/calendar"}),`pengingat-indek-${todayISO()}.ics`)};
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)checkReminders()});
+setInterval(()=>{if(!document.hidden)checkReminders()},30*60e3);
+setTimeout(checkReminders,4000);
+
+function planCardHtml(g){if(!g.p.id)return"";const f=projProfit(g);
+  return `${f.planOpen?`<div class="rv"><span>Rencana biaya belum dibayar</span><span class="num warnc">${rp(f.planOpen)}</span></div>`:""}${g.p.value?`<div class="rv estrow ${f.est<0?"neg":""}"><span>Estimasi untung bersih${f.margin!==null?` · ${Math.round(f.margin*100)}%`:""}</span><span class="num">${sRp(f.est)}</span></div>`:""}<button type="button" class="payadd planlink" data-go="rencana" data-rproj="${esc(g.p.id)}">${svg("cal",15)} Rencana biaya${f.nOpen?` · ${f.nOpen} belum dibayar`:""}</button>`}
+
+
+function plDueUpdate(){const has=!!$("plDue").value;$("plRemindWrap").hidden=!has;$("plNoDate").hidden=has;$("plDueClr").hidden=!has}
+$("plDue").addEventListener("input",plDueUpdate);$("plDue").addEventListener("change",plDueUpdate);
+$("plDueClr").onclick=()=>{$("plDue").value="";plDueUpdate()};
 
 boot();
 </script>

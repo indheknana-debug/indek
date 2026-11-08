@@ -1,6 +1,6 @@
 // Service worker Catatan Keuangan Indek: membuat aplikasi cepat dibuka dan bisa dipakai tanpa internet.
 // Naikkan VERSION setiap kali file aplikasi diubah, supaya HP mengambil versi baru.
-const VERSION = "indek-v32";
+const VERSION = "indek-v34";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png", "./favicon-32.png"];
 const CDN = ["cdn.jsdelivr.net", "cdnjs.cloudflare.com", "fonts.googleapis.com", "fonts.gstatic.com"];
 
@@ -45,3 +45,41 @@ self.addEventListener("fetch", e => {
   }
   // Permintaan ke Supabase tidak disentuh: data dikelola oleh aplikasi sendiri.
 });
+
+// Ketuk notifikasi: buka Indek di menu Rencana.
+self.addEventListener("notificationclick", e => {
+  e.notification.close();
+  const url = (e.notification.data && e.notification.data.url) || "./";
+  e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(cs => {
+    for (const c of cs) { if ("focus" in c) { if (c.navigate) c.navigate(url).catch(() => {}); return c.focus(); } }
+    return self.clients.openWindow(url);
+  }));
+});
+
+// Pengingat di latar belakang (Chrome Android untuk aplikasi yang terpasang).
+self.addEventListener("periodicsync", e => { if (e.tag === "indek-pengingat") e.waitUntil(remindFromDb()); });
+function idbAll(db, store) { return new Promise(ok => { try { const r = db.transaction(store, "readonly").objectStore(store).getAll(); r.onsuccess = () => ok(r.result || []); r.onerror = () => ok([]); } catch (e) { ok([]); } }); }
+async function remindFromDb() {
+  const db = await new Promise(ok => { const r = indexedDB.open("indek"); r.onsuccess = () => ok(r.result); r.onerror = () => ok(null); });
+  if (!db) return;
+  const pj = await idbAll(db, "projects"), tx = await idbAll(db, "tx");
+  const live = new Set(tx.filter(t => !t.trashedAt).map(t => String(t.id)));
+  const pad = n => String(n).padStart(2, "0"), d = new Date(), today = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`, cur = today.slice(0, 7);
+  const addD = (s, n) => { const x = new Date(s + "T00:00"); x.setDate(x.getDate() + n); return `${x.getFullYear()}-${pad(x.getMonth() + 1)}-${pad(x.getDate())}`; };
+  const due = [];
+  for (const p of pj.filter(p => p.kind === "plan" && p.due)) {
+    let key = "once", date = p.due;
+    if (p.repeat) { if (p.due.slice(0, 7) > cur) continue; const [y, m] = cur.split("-").map(Number), last = new Date(y, m, 0).getDate(); key = cur; date = `${cur}-${pad(Math.min(+p.due.slice(8, 10), last))}`; }
+    const paid = (p.paid || {})[key];
+    if ((paid && live.has(String(paid))) || (p.skip || {})[key]) continue;
+    if (addD(date, -(p.remind || 0)) > today) continue;
+    due.push({ p, key, date });
+  }
+  for (const o of due.slice(0, 5)) {
+    const name = o.p.title || o.p.cat, late = o.date < today;
+    await self.registration.showNotification((late ? "Terlambat: " : "Pengingat bayar: ") + name, {
+      body: `Rp ${Number(o.p.amount).toLocaleString("id-ID")} · jatuh tempo ${o.date}`,
+      tag: o.p.id + "|" + o.key, icon: "icon-192.png", badge: "favicon-32.png", data: { url: "./#rencana" }
+    });
+  }
+}
